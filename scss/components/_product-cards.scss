@@ -13,12 +13,15 @@
             align-items: center;
             overflow: hidden;
             transition: all ease-in-out 0.3s;
+            justify-content: center;
+            height: 320px;
+            width: 100%;
             img {
                 overflow: hidden;
                 display: flex;
                 position: relative;
-                width: 100%;
-                height: auto;
+                height: 100%;
+                width: auto;
                 transition: all ease-in-out 0.7s;
                 transition-delay: 0.12s;
             }
@@ -38,23 +41,28 @@
                 h3 {
                     margin: 0;
                     text-transform: uppercase;
+                    width: 100%;
                     margin-top: 0.5rem;
                 }
                 .product-label {
                     border-radius: 5px;
-                    padding: 0.25rem 0.5rem;
+                    padding: 0.1rem 0.25rem;
                     margin-top: 0.5rem;
                     margin-bottom: 0.5rem;
-                    font-size: 12px;
+                    font-size: .9rem;
                     color: #fff;
                 }
                 .product-label-category {
-                    background-color: $third-color;
+                    color: $third-color;
+                    border: 1px solid $third-color;
+                    min-width: 50px;
+                    text-align: center;
                 }
             }
             .product-price-container {
                 display: flex;
                 width: 100%;
+                margin-top: .5rem;
                 justify-content: space-between;
                 .product-price {
                     font-weight: bold;
@@ -76,7 +84,7 @@
         .discount {
             width: 100px;
             height: 120px;
-            transform: scale(.9);
+            transform: scale(0.9);
             transition: transform ease-in-out 0.3s, opacity ease-in-out 0.3s;
             top: 7px;
             left: 7px;

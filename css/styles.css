@@ -75,13 +75,16 @@ html {
   align-items: center;
   overflow: hidden;
   transition: all ease-in-out 0.3s;
+  justify-content: center;
+  height: 320px;
+  width: 100%;
 }
 .products-container .card-product .product-img-container img {
   overflow: hidden;
   display: flex;
   position: relative;
-  width: 100%;
-  height: auto;
+  height: 100%;
+  width: auto;
   transition: all ease-in-out 0.7s;
   transition-delay: 0.12s;
 }
@@ -102,22 +105,27 @@ html {
 .products-container .card-product .product-description-container .product-title h3 {
   margin: 0;
   text-transform: uppercase;
+  width: 100%;
   margin-top: 0.5rem;
 }
 .products-container .card-product .product-description-container .product-title .product-label {
   border-radius: 5px;
-  padding: 0.25rem 0.5rem;
+  padding: 0.1rem 0.25rem;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
-  font-size: 12px;
+  font-size: 0.9rem;
   color: #fff;
 }
 .products-container .card-product .product-description-container .product-title .product-label-category {
-  background-color: #0f640f;
+  color: #0f640f;
+  border: 1px solid #0f640f;
+  min-width: 50px;
+  text-align: center;
 }
 .products-container .card-product .product-description-container .product-price-container {
   display: flex;
   width: 100%;
+  margin-top: 0.5rem;
   justify-content: space-between;
 }
 .products-container .card-product .product-description-container .product-price-container .product-price {
@@ -811,10 +819,14 @@ html {
   list-style: none;
   padding: 0;
 }
+.products-filter-container .categories-container .list-categories li {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
 .products-filter-container .categories-container .list-categories li a {
   height: 20px;
   width: 120px;
-  text-transform: uppercase;
+  text-transform: capitalize;
   background-color: #fff;
   margin: 0 1rem;
   border: 1px solid #900707;
@@ -832,6 +844,7 @@ html {
   transition: all ease-in-out 0.3s;
   font-weight: 800;
   text-align: center;
+  line-height: 1.2rem;
 }
 .products-filter-container .categories-container .list-categories li a:hover {
   transform: translateY(-5px);

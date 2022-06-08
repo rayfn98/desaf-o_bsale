@@ -73,10 +73,12 @@
             list-style: none;
             padding: 0;
             li {
+                margin-top: .5rem;
+                margin-bottom: .5rem;
                 a {
                     height: 20px;
                     width: 120px;
-                    text-transform: uppercase;
+                    text-transform: capitalize;
                     background-color: #fff;
                     margin: 0 1rem;
                     border: 1px solid $main-color;
@@ -94,6 +96,7 @@
                     transition: all ease-in-out 0.3s;
                     font-weight: 800;
                     text-align: center;
+                    line-height: 1.2rem;
                     &:hover {
                         transform: translateY(-5px);
                         -webkit-transform: translateY(-5px);
