@@ -1,0 +1,161 @@
+@import "../global.scss";
+.products-filter-container {
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+    position: inherit;
+    border-radius: 0 0 15px 15px;
+    width: 100%;
+    // background-color: rgb(228, 228, 228);
+    background-color: #fff;
+    // background-image: url('../img/Fondo-food-pattern.svg');
+    background-position: center center;
+    background-size: cover;
+    // background: linear-gradient(90deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.72));
+    // backdrop-filter: brightness(0.8) contrast(0.9);
+    padding: 1rem 0;
+    .products-filter {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0rem 2rem;
+        width: auto;
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 1rem;
+            input {
+                height: 2.5rem;
+                border-radius: 5px;
+                padding-left: 8px;
+                border: 0;
+                outline: none;
+                font-size: 1rem;
+                //
+                background-color: rgb(255, 255, 255);
+                height: 30px;
+                margin: 0 0.5rem;
+                min-width: 300px;
+                max-width: 70%;
+                transition: all ease-in-out 0.28s;
+                box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.25);
+                -webkit-box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.25);
+                -moz-box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.25);
+                &:focus {
+                    transform: scale(1.02);
+                    box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.25);
+                    -webkit-box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.25);
+                    -moz-box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.25);
+                }
+            }
+            button {
+                cursor: pointer;
+                background: $third-color;
+                margin: 0.8rem 0;
+            }
+        }
+    }
+    //Separator
+    .products-filter-separator {
+        margin: 1rem 0 1rem 0;
+    }
+    // Categorías
+    .categories-container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        width: auto;
+        .list-categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            li {
+                a {
+                    height: 20px;
+                    width: 120px;
+                    text-transform: uppercase;
+                    background-color: #fff;
+                    margin: 0 1rem;
+                    border: 1px solid $main-color;
+                    box-shadow: 0px 7px 20px 0px rgba(0, 0, 0, 0.2);
+                    -webkit-box-shadow: 0px 7px 20px 0px rgba(0, 0, 0, 0.2);
+                    -moz-box-shadow: 0px 7px 20px 0px rgba(0, 0, 0, 0.2);
+                    padding: 0.7rem 1rem;
+                    border-radius: 25px;
+                    color: $main-color;
+                    text-decoration: none;
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    align-items: center;
+                    transition: all ease-in-out 0.3s;
+                    font-weight: 800;
+                    text-align: center;
+                    &:hover {
+                        transform: translateY(-5px);
+                        -webkit-transform: translateY(-5px);
+                        -moz-transform: translateY(-5px);
+                        box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.25);
+                        -webkit-box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.25);
+                        -moz-box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.25);
+                    }
+                    &:active {
+                        background: rgba($main-color, 1);
+                        color: $secondary-color;
+                    }
+                    &.offers-category {
+                        border-color: $third-color;
+                        color: $third-color;
+                        &:active,
+                        &.active {
+                            background: $third-color;
+                            color: $secondary-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and(max-width: 1366px) {
+    .products-filter-container {
+        //Separator
+        .products-filter-separator {
+            margin: 1rem 0 1rem 0;
+        }
+        // Categorías
+        .categories-container {
+            .list-categories {
+                li {
+                    a {
+                        height: 20px;
+                        width: 120px;
+                        font-size: 0.8rem;
+                        font-weight: 800;
+                        margin: 0.5rem 0.8rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) and (orientation: portrait) {
+    .products-filter-container {
+        .products-filter {
+            form {
+                width: auto;
+                input {
+                    width: auto;
+                }
+                .btn {
+                    width: auto;
+                }
+            }
+        }
+    }
+}

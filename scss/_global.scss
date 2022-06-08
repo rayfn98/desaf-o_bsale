@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600&display=swap");
+$main-color: rgb(144,
+7,
+7);
+$secondary-color: rgb(243,
+191,
+20);
+$third-color: rgb(15,
+100,
+15);
+$link-color: rgb(0,
+89,
+141);
+$grey-color: #505050;
+$title-bg-color: rgb(255,
+255,
+255);
+//Fonts
+$font-titles: "Poppins",
+sans-serif;
+$font-text: "Nunito",
+sans-serif;
+//Fondo
+body {
+    font-family: $font-text;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: center;
+    background-color: rgb(241, 238, 230);
+}
+
+html {
+    overflow-x: hidden;
+}
+
+// BUTTONS
+.btn {
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    background-color: $main-color;
+    padding: 0.5rem 0.7rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    transition: all ease-in-out 0.24s;
+    box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.2);
+    &:hover {
+        box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.35);
+        -webkit-box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.35);
+        -moz-box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.35);
+        filter: brightness(1.2);
+    }
+    &:active {
+        transform: rotate(1.2);
+    }
+    i {
+        margin-right: 0.2rem;
+    }
+}
+
+//TÍTULOS Y SUBTÍTULOS
+.title {
+    font-size: 3rem;
+}
+
+.title,
+.subtitle {
+    text-transform: uppercase;
+    font-family: $font-titles;
+}
+
+.subtitle {
+    font-size: 2rem;
+    margin: 1rem 0;
+}

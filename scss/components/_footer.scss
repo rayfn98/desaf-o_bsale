@@ -1,0 +1,94 @@
+@import "../global.scss"; //GLOBAR VARS
+@import "../components/rounded-social"; // Ìconos Rounded para Redes Sociales
+footer {
+    .footer-content {
+        background-color: rgb(255, 255, 255);
+        background-position: center center;
+        background-size: cover;
+        border-top: 1px solid #C6C6C6;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+        .business-content {
+            width: auto;
+            padding: 2rem;
+            h3 {
+                line-height: 1rem;
+            }
+            ul {
+                padding-left: 0;
+                list-style: none;
+                font-weight: 600;
+                font-size: 1rem;
+                li {
+                    line-height: 1.7rem;
+                    i {
+                        color: $main-color;
+                    }
+                }
+            }
+        }
+        .dev-content {
+            width: auto;
+            padding: 2rem;
+            font-weight: 600;
+            .dev-info {
+                .img-container {
+                    display: flex;
+                    justify-content: center;
+                    img {
+                        height: 100px;
+                    }
+                }
+                p {
+                    width: 100%;
+                    a {
+                        text-decoration: none;
+                        color: $link-color;
+                    }
+                }
+            }
+        }
+        .copyright {
+            background-color: $main-color;
+            color: #fff;
+            font-size: 0.7rem;
+            width: 100%;
+            p {
+                text-align: center;
+                margin: 0.2rem 0;
+            }
+        }
+    }
+}
+
+@media screen and(max-width: 600px) {
+    footer {
+        .footer-content {
+            .business-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem .5rem;
+                h3 {
+                    line-height: 0;
+                }
+            }
+            .dev-content {
+                padding: 0 0 .5rem 0;
+                .img-container {}
+            }
+            .copyright {
+                background-color: $main-color;
+                color: #fff;
+                font-size: 0.7rem;
+                width: 100%;
+                p {
+                    text-align: center;
+                    margin: 0.2rem 0;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,212 @@
+@import "../global";
+.products-container {
+    padding-bottom: 2.4rem;
+    .card-product {
+        display: flex;
+        width: 24%;
+        flex-wrap: wrap;
+        flex-direction: column;
+        transition: all ease-in-out 0.2s;
+        .product-img-container {
+            height: auto;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            transition: all ease-in-out 0.3s;
+            img {
+                overflow: hidden;
+                display: flex;
+                position: relative;
+                width: 100%;
+                height: auto;
+                transition: all ease-in-out 0.7s;
+                transition-delay: 0.12s;
+            }
+        }
+        .product-description-container {
+            display: flex;
+            flex-direction: column;
+            padding: 0.5rem 1.5rem 1rem 1.5rem;
+            width: auto;
+            background-color: #fff;
+            position: relative;
+            transition: all ease-in-out 0.3s;
+            .product-title {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                h3 {
+                    margin: 0;
+                    text-transform: uppercase;
+                    margin-top: 0.5rem;
+                }
+                .product-label {
+                    border-radius: 5px;
+                    padding: 0.25rem 0.5rem;
+                    margin-top: 0.5rem;
+                    margin-bottom: 0.5rem;
+                    font-size: 12px;
+                    color: #fff;
+                }
+                .product-label-category {
+                    background-color: $third-color;
+                }
+            }
+            .product-price-container {
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+                .product-price {
+                    font-weight: bold;
+                    font-size: 1.2rem;
+                    color: $grey-color;
+                }
+                img {
+                    width: 1rem;
+                    margin-bottom: 0.2rem;
+                }
+                .btn-container {
+                    width: auto;
+                    .btn-request-product {
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+        .discount {
+            width: 100px;
+            height: 120px;
+            transform: scale(.9);
+            transition: transform ease-in-out 0.3s, opacity ease-in-out 0.3s;
+            top: 7px;
+            left: 7px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: -120px;
+            z-index: 100;
+            span {
+                right: 0;
+                width: 100px;
+                display: flex;
+                justify-content: center;
+                background: $main-color;
+                border-top: 2px solid #fff;
+                border-bottom: 2px solid #fff;
+                padding: 5px 0;
+                color: #fff;
+                font-size: 0.5rem;
+                border-radius: 0px 0px 10px 10px;
+                font-weight: 600;
+                text-transform: uppercase;
+            }
+            &.not-discount {
+                display: none;
+            }
+            .percentage {
+                background: #000;
+                color: #fff;
+                text-align: center;
+                font-size: 1.2rem;
+                margin: 0;
+                border-radius: 10px 10px 0px 0px;
+            }
+        }
+        .discount::before {
+            top: 0px;
+            right: 15px;
+        }
+        .discount::after {
+            bottom: 15px;
+            left: 0px;
+        }
+        &:hover {
+            transform: scale(1.03);
+            box-shadow: 0px 8px 40px 0px rgba(0, 0, 0, 0.25);
+            -webkit-box-shadow: 0px 8px 40px 0px rgba(0, 0, 0, 0.25);
+            -moz-box-shadow: 0px 8px 40px 0px rgba(0, 0, 0, 0.25);
+            .product-img-container img {
+                transform: scale(1.05);
+            }
+            .product-description-container {
+                .product-price-container {
+                    .btn-container {
+                        animation: product-card-btn-animation;
+                        animation-duration: 3.2s;
+                        animation-iteration-count: infinite;
+                    }
+                }
+            }
+            .discount {
+                transform: scale(1.05);
+                opacity: 1;
+            }
+        }
+    }
+}
+
+// Keyframe for product Card Button
+@keyframes product-card-btn-animation {
+    0%,
+    65% {
+        transform: scale(1);
+    }
+    76% {
+        transform: scale(1.1) rotate(-10deg);
+    }
+    90% {
+        transform: scale(1.02) rotate(5deg);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+//Responsive
+@media screen and (max-width: 1366px) and (orientation: portrait) {
+    .products-container {
+        .card-product {
+            width: 35%;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .products-container {
+        .card-product {
+            width: 80%;
+        }
+    }
+}
+
+@media screen and (max-width: 1080px) and (orientation: landscape) {
+    .products-container {
+        .card-product {
+            width: 35%;
+        }
+    }
+}
+
+@media screen and (max-width: 1366px) {
+    .products-container {
+        .card-product {
+            .product-description-container {
+                padding: 1rem 0.8rem;
+                .product-title {
+                    h3 {
+                        margin: 0;
+                        text-transform: uppercase;
+                        font-size: 1.1rem;
+                    }
+                    .product-label {
+                        font-size: 11px;
+                    }
+                }
+                .product-price-container {
+                    .product-price {
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,107 @@
+.modal-request-container {
+    position: fixed;
+    height: 120vh;
+    width: 100vw;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    transition: all ease-in-out .15s;
+    backdrop-filter: blur(5px);
+    &.closed {
+        opacity: 0;
+        visibility: hidden;
+    }
+    .modal-content {
+        position: relative;
+        background-color: #fff;
+        height: 95vh;
+        width: 93vw;
+        border-radius: 24px 24px 0 0;
+        padding: 1.2rem 1rem;
+        top: 10vh;
+        transition: all ease-in-out .4s;
+        &.modal-closed {
+            transform: translateY(100vh) scale3d(1.4, 1, 1) skew(-5deg, -10deg);
+            opacity: 0.5;
+        }
+        .close-modal-request-btn {
+            display: flex;
+            margin-right: 1rem;
+            align-items: center;
+            justify-content: flex-end;
+            .request-btn {
+                display: flex;
+                justify-content: flex-end;
+                padding-right: 1.2rem;
+                a {
+                    display: flex;
+                    color: $grey-color;
+                    position: relative;
+                    font-size: 27px;
+                    margin-bottom: 5px;
+                    text-decoration: none;
+                    span {
+                        font-size: 0.9rem;
+                        font-weight: 600;
+                        background: $main-color;
+                        color: #fff;
+                        height: 22px;
+                        width: 22px;
+                        text-align: center;
+                        border-radius: 100%;
+                        position: relative;
+                        left: -5px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                }
+            }
+            span {
+                cursor: pointer;
+                div {
+                    width: 27px;
+                    height: 3px;
+                    margin-bottom: 5px;
+                    position: relative;
+                    background: $grey-color;
+                    border-radius: 3px;
+                    z-index: 1;
+                    transform-origin: 4px 0px;
+                    &:first-child {
+                        transform-origin: 0% 0%;
+                    }
+                    &:nth-last-child(2) {
+                        transform-origin: 0% 0%;
+                    }
+                    &:nth-last-child(3) {
+                        transform-origin: 0% 0%;
+                    }
+                }
+            }
+            span {
+                div {
+                    &:nth-last-child(1) {
+                        transform: rotate(45deg);
+                        width: 20;
+                        top: -12px;
+                    }
+                    &:nth-last-child(2) {
+                        transform: rotate(-45deg);
+                        width: 20;
+                        top: 12px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and(min-width: 1366px) {
+    .modal-request-container {
+        .modal-content {
+            width: 90vw;
+        }
+    }
+}
