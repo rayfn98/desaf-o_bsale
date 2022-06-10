@@ -11,14 +11,12 @@ let modalContent = document.querySelectorAll("#modal-request-content")[0];
 function openModalRequest() {
     modalContent.classList.toggle("modal-closed");
     modalRequestContainer.classList.toggle("closed");
-    // pageContent.style.transform = 'scale(.95) translateY(-2%)'
 }
 
 function closeModalRequest() {
     modalContent.classList.toggle("modal-closed");
     setTimeout(function() {
         modalRequestContainer.classList.toggle("closed");
-        pageContent.style.transform = "scale(1)";
     }, 100);
 }
 

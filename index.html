@@ -21,11 +21,14 @@
     <link rel="stylesheet" href="css/styles.css" />
     <script src="https://kit.fontawesome.com/a0fa2bbe71.js" crossorigin="anonymous"></script>
 
-    <script type="text/javascript " src="./js/interaction/cart.js "></script>
+    <script type="text/javascript" src="./js/categories.js"></script>
+    <script type="text/javascript" src="./js/components/products.js"></script>
+    <script type="text/javascript" src="./js/components/searcher.js"></script>
+    <script type="text/javascript" src="./js/components/renderers.js"></script>
+    <script type="text/javascript" src="./js/main.js"></script>
 
     <!-- AXIOS -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <!-- <script type="module" src="js/axios.js" defer></script> -->
 
     <meta name="theme-color" content="#fafafa" />
 </head>
@@ -42,7 +45,7 @@
                 <div class="request-btn">
                     <a href="" class="open-modal-request-btn">
                         <i class="fas fa-shopping-bag"></i>
-                        <span>12</span>
+                        <span class="request-quantity-number">0</span>
                     </a>
                 </div>
                 <span onclick="openMenu()">
@@ -52,12 +55,14 @@
           </span>
             </div>
         </div>
-
+        <div id="loader-container">
+            <div id="loader" data-aos="zoom-in" style="transition: all ease-in-out 0.4s 0.12s"></div>
+        </div>
         <!-- Content -->
         <div class="content">
             <!-- Header TItle -->
             <div class="title-tienda">
-                <h1>TIENDA BSALE</h1>
+                <h1>App</h1>
             </div>
             <hr style="margin: 0" />
             <!-- Products Filter -->
@@ -73,16 +78,33 @@
                 </div>
                 <hr class="products-filter-separator" />
                 <div class="products-filter">
-                    <form action="">
-                        <input type="text" name="" id="input-products-filter" placeholder="¿Qué estás buscando?" /><button type="submit" class="btn btn-filter">
-                <i class="fas fa-search"></i><span> Buscar</span>
+                    <div class="filter-form">
+                        <div class="input-container prevent-hidden">
+                            <input type="text" class="prevent-hidden" name="queryProduct" id="input-products-filter" placeholder="¿Qué estás buscando?" />
+                        </div>
+                        <button class="btn btn-filter prevent-hidden" onclick="getFilteredProducts(true)">
+                <i class="fas fa-search prevent-hidden"></i
+                ><span class="prevent-hidden"> Buscar</span>
               </button>
-                    </form>
+                    </div>
+                    <div class="search-quick-results">
+                        <div class="quick-results hidden prevent-hidden"></div>
+                    </div>
                 </div>
+            </div>
+            <!-- Filter Results -->
+            <div class="filter-reset-container hidden">
+                <h3 id="filter-results"></h3>
+                <button class="btn" onclick="initProducts()">
+            Ver todos los productos
+          </button>
             </div>
             <!-- Card products -->
             <div class="card-container products-container">
                 <p>Productos...</p>
+            </div>
+            <div class="view-more-container">
+                <button class="btn btn-view-more" onclick="showProducts(true)">Ver más</button>
             </div>
             <!-- Footer -->
             <footer class="footer">
@@ -168,7 +190,7 @@
                                     </div>
                                     Ver Pedido
                                     <div class="request-quantity">
-                                        <span>12</span>
+                                        <span class="request-quantity-number">0</span>
                                     </div>
                                 </a>
                             </li>
@@ -183,7 +205,7 @@
         <div class="modal-request-container closed">
             <div class="modal-content modal-closed" id="modal-request-content">
                 <div class="close-modal-request-btn">
-                    <span id="close-modal-icon ">
+                    <span id="close-modal-icon">
               <div></div>
               <div></div>
             </span>
@@ -193,9 +215,8 @@
         <!-- Final Modal Pedidos -->
     </div>
 
-    <script type="module" src="./js/main.js "></script>
-    <script type="text/javascript " src="./js/interaction/menu.js "></script>
-    <script type="text/javascript " src="./js/interaction/modal.js "></script>
+    <script type="text/javascript" src="./js/components/menu.js"></script>
+    <script type="text/javascript" src="./js/components/modal.js"></script>
 </body>
 
 </html>

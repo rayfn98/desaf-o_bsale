@@ -49,7 +49,7 @@
                     padding: 0.1rem 0.25rem;
                     margin-top: 0.5rem;
                     margin-bottom: 0.5rem;
-                    font-size: .9rem;
+                    font-size: 0.9rem;
                     color: #fff;
                 }
                 .product-label-category {
@@ -62,7 +62,7 @@
             .product-price-container {
                 display: flex;
                 width: 100%;
-                margin-top: .5rem;
+                margin-top: 0.5rem;
                 justify-content: space-between;
                 .product-price {
                     font-weight: bold;
@@ -75,6 +75,11 @@
                 }
                 .btn-container {
                     width: auto;
+                    .request-quantity {
+                        width: 2.5rem;
+                        font-size: 0.9rem;
+                        height: 1.5rem;
+                    }
                     .btn-request-product {
                         font-size: 1rem;
                     }
@@ -91,7 +96,7 @@
             position: relative;
             overflow: hidden;
             margin-bottom: -120px;
-            z-index: 100;
+            z-index: 2;
             span {
                 right: 0;
                 width: 100px;
