@@ -205,8 +205,8 @@
         <!-- Fín de Menú -->
 
         <!-- Modal Request Pedidos -->
-        <div class="modal-request-container closed">
-            <div class="modal-content modal-closed" id="modal-request-content">
+        <div class="modal-request-container open">
+            <div class="modal-content modal-open" id="modal-request-content">
                 <div class="close-modal-request-btn">
                     <span id="close-modal-icon">
               <div></div>
@@ -215,7 +215,54 @@
                 </div>
                 <!-- Cart Content -->
                 <div class="cart-content">
-                    Hola
+                    <div class="cart-title">
+                        <h2>Carrito</h2>
+                    </div>
+                    <div class="cart-products">
+                        <table style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th>N°</th>
+                                    <th>Nombre</th>
+                                    <th>Imagen</th>
+                                    <th>Cantidad</th>
+                                    <th>Precio</th>
+                                    <th>Subtotal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td class="product-name">ENERGETICA GASEOSA &nbsp;<span>categoría</span></td>
+                                    <td><img src="/img/no-image.svg" alt="" /></td>
+                                    <td>23</td>
+                                    <td>S/. 200</td>
+                                    <td>S/. 150</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td class="product-name">GASEOSA &nbsp;<span>categoría</span></td>
+                                    <td><img src="/img/no-image.svg" alt="" /></td>
+                                    <td>23</td>
+                                    <td>S/. 200</td>
+                                    <td>S/. 150</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Total:</td>
+                                    <td>S/.200</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <div class="cart-actions">
+                        <button class="btn">Pagar</button>
+                    </div>
                 </div>
             </div>
         </div>

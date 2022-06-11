@@ -793,6 +793,47 @@ html {
   width: 20;
   top: 12px;
 }
+.modal-request-container .modal-content .cart-content {
+  max-width: 95%;
+  margin: auto;
+}
+.modal-request-container .modal-content .cart-content .cart-products {
+  overflow-x: auto;
+}
+.modal-request-container .modal-content .cart-content .cart-products table {
+  border: 1px solid #76169c;
+  border-radius: 10px;
+  padding: 0.5rem 0.5rem;
+}
+.modal-request-container .modal-content .cart-content .cart-products table thead tr th {
+  border-bottom: 1px solid #76169c;
+}
+.modal-request-container .modal-content .cart-content .cart-products table tbody tr td {
+  text-align: center;
+}
+.modal-request-container .modal-content .cart-content .cart-products table tbody tr td.product-name {
+  text-align: left;
+  padding-left: 0.5rem;
+  max-width: 200px;
+}
+.modal-request-container .modal-content .cart-content .cart-products table tbody tr td.product-name span {
+  font-size: 0.8rem;
+  color: #76169c;
+  border: 1px solid #76169c;
+  border-radius: 25px;
+  padding: 0 0.4rem;
+}
+.modal-request-container .modal-content .cart-content .cart-products table tbody tr td img {
+  width: 50px;
+}
+.modal-request-container .modal-content .cart-content .cart-products table tfoot tr td {
+  padding-top: 0.5rem;
+  border-top: 1px solid #76169c;
+}
+.modal-request-container .modal-content .cart-content .cart-products table tfoot tr td:nth-child(5), .modal-request-container .modal-content .cart-content .cart-products table tfoot tr td:nth-child(6) {
+  text-align: center;
+  font-weight: bold;
+}
 
 @media screen and (min-width: 1366px) {
   .modal-request-container .modal-content {
