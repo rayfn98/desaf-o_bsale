@@ -28,34 +28,31 @@ function showProducts(add = false) {
         btnViewMore.style.display = "block";
     }
 
-    const showProductsList = products
-        .sort()
-        .slice(0, displayLimit)
-        .map((product, i) => {
-            if (product.discount > 0) {
-                product.on_sale = true;
-                product.display_discount = `
+    const showProductsList = products.slice(0, displayLimit).map((product, i) => {
+        if (product.discount > 0) {
+            product.on_sale = true;
+            product.display_discount = `
       <div class="discount">
         <p class="percentage">% ${product.discount}</p>
         <span class="">De descuento</span>
       </div>
       `;
-            } else {
-                product.display_discount = "";
-            }
+        } else {
+            product.display_discount = "";
+        }
 
-            if (!product.url_image) {
-                product.url_image = "./img/no-image.svg";
-            }
+        if (!product.url_image) {
+            product.url_image = "./img/no-image.svg";
+        }
 
-            product.category_name = "Sin categoría";
-            // Obtener nombre de categoría
-            categories.forEach((category) => {
-                if (product.category == category.id) {
-                    product.category_name = category.name;
-                }
-            });
-            return `
+        product.category_name = "Sin categoría";
+        // Obtener nombre de categoría
+        categories.forEach((category) => {
+            if (product.category == category.id) {
+                product.category_name = category.name;
+            }
+        });
+        return `
     <div class="card card-product">
     ${product.display_discount}
     <div class="product-img-container">
@@ -79,7 +76,7 @@ function showProducts(add = false) {
     </div>
     </div>
     </div>`;
-        });
+    });
     const productsContainer =
         document.getElementsByClassName("products-container")[0];
     if (products.length) {

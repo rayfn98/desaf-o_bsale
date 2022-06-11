@@ -797,19 +797,34 @@ html {
   max-width: 95%;
   margin: auto;
 }
+.modal-request-container .modal-content .cart-content .cart-title i {
+  color: #76169c;
+}
 .modal-request-container .modal-content .cart-content .cart-products {
   overflow-x: auto;
-}
-.modal-request-container .modal-content .cart-content .cart-products table {
+  overflow-y: auto;
+  max-height: 64vh;
   border: 1px solid #76169c;
   border-radius: 10px;
+}
+.modal-request-container .modal-content .cart-content .cart-products table {
   padding: 0.5rem 0.5rem;
 }
 .modal-request-container .modal-content .cart-content .cart-products table thead tr th {
   border-bottom: 1px solid #76169c;
 }
+.modal-request-container .modal-content .cart-content .cart-products table tbody tr:nth-child(even) {
+  background-color: whitesmoke;
+}
 .modal-request-container .modal-content .cart-content .cart-products table tbody tr td {
   text-align: center;
+}
+.modal-request-container .modal-content .cart-content .cart-products table tbody tr td.product-delete button {
+  background-color: #fff;
+  color: #76169c;
+  box-shadow: none;
+  border: 1px solid #76169c;
+  font-size: -8rem;
 }
 .modal-request-container .modal-content .cart-content .cart-products table tbody tr td.product-name {
   text-align: left;
@@ -823,6 +838,17 @@ html {
   border-radius: 25px;
   padding: 0 0.4rem;
 }
+.modal-request-container .modal-content .cart-content .cart-products table tbody tr td.product-name span.discount {
+  border-color: green;
+  color: green;
+}
+.modal-request-container .modal-content .cart-content .cart-products table tbody tr td.product-quantity input {
+  max-width: 3rem;
+  border-radius: 25px;
+  text-align: center;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid #505050;
+}
 .modal-request-container .modal-content .cart-content .cart-products table tbody tr td img {
   width: 50px;
 }
@@ -833,6 +859,32 @@ html {
 .modal-request-container .modal-content .cart-content .cart-products table tfoot tr td:nth-child(5), .modal-request-container .modal-content .cart-content .cart-products table tfoot tr td:nth-child(6) {
   text-align: center;
   font-weight: bold;
+}
+.modal-request-container .modal-content .cart-content .cart-actions {
+  display: flex;
+  justify-content: end;
+  padding-top: 0.7rem;
+  align-items: center;
+}
+.modal-request-container .modal-content .cart-content .cart-actions .total {
+  width: auto;
+  font-size: 1.2rem;
+  line-height: 0.1rem;
+}
+.modal-request-container .modal-content .cart-content .cart-actions .total h4::after {
+  content: " ";
+}
+.modal-request-container .modal-content .cart-content .cart-actions .total p {
+  font-size: 1rem;
+  color: green;
+}
+.modal-request-container .modal-content .cart-content .cart-actions .btn-container {
+  width: auto;
+}
+.modal-request-container .modal-content .cart-content .cart-actions button {
+  font-size: 1.2rem;
+  border-radius: 25px;
+  padding: 0.7rem 2rem;
 }
 
 @media screen and (min-width: 1366px) {

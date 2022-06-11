@@ -216,39 +216,24 @@
                 <!-- Cart Content -->
                 <div class="cart-content">
                     <div class="cart-title">
-                        <h2>Carrito</h2>
+                        <h2><i class="fas fa-shopping-bag"></i>&nbsp; Carrito (<span class="request-quantity-number"></span> Items)</h2>
                     </div>
                     <div class="cart-products">
                         <table style="width: 100%">
                             <thead>
                                 <tr>
-                                    <th>N°</th>
-                                    <th>Nombre</th>
+                                    <th></th>
+                                    <th>Producto</th>
                                     <th>Imagen</th>
                                     <th>Cantidad</th>
                                     <th>Precio</th>
                                     <th>Subtotal</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td class="product-name">ENERGETICA GASEOSA &nbsp;<span>categoría</span></td>
-                                    <td><img src="/img/no-image.svg" alt="" /></td>
-                                    <td>23</td>
-                                    <td>S/. 200</td>
-                                    <td>S/. 150</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td class="product-name">GASEOSA &nbsp;<span>categoría</span></td>
-                                    <td><img src="/img/no-image.svg" alt="" /></td>
-                                    <td>23</td>
-                                    <td>S/. 200</td>
-                                    <td>S/. 150</td>
-                                </tr>
+                            <tbody class="cart-items-container">
+
                             </tbody>
-                            <tfoot>
+                            <!-- <tfoot>
                                 <tr>
                                     <td></td>
                                     <td></td>
@@ -257,11 +242,19 @@
                                     <td>Total:</td>
                                     <td>S/.200</td>
                                 </tr>
-                            </tfoot>
+                            </tfoot> -->
                         </table>
                     </div>
                     <div class="cart-actions">
-                        <button class="btn">Pagar</button>
+                        <div class="total">
+                            <h4>Total: $ <span class="total-cost">0</span> &nbsp;</h4>
+                            <p>Ahorras: $ <span class="saved-money">0</span> &nbsp;</p>
+                        </div>
+                        <div class="btn-container">
+                            <button class="btn">
+                                Pagar &nbsp;<i class="fas fa-credit-card"></i>
+                              </button>
+                        </div>
                     </div>
                 </div>
             </div>

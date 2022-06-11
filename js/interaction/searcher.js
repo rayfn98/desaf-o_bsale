@@ -21,7 +21,7 @@ function showFilteredProducts(products, query = "", display = false) {
             </div>
             <div class="item-price prevent-hidden">
             <span class="prevent-hidden">$ ${product.price}</span>
-            <button onclick="addToCart()" class="btn-add-results prevent-hidden">+</button>
+            <button onclick="addToCart(${product.id})" class="btn-add-results prevent-hidden">+</button>
             </div>
             </div>`;
             })

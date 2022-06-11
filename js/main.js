@@ -1,6 +1,6 @@
 // ENV
-const BACKEND_URL = "https://desafiobsale.herokuapp.com";
-// const BACKEND_URL = "http://localhost:3000";
+// const BACKEND_URL = "https://desafiobsale.herokuapp.com";
+const BACKEND_URL = "http://localhost:3000";
 
 // General Functions
 function endLoading() {
