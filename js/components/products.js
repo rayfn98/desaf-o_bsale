@@ -67,7 +67,7 @@ function showProducts(add = false) {
     </div>
 
     <div class="product-price-container">
-        <span class="product-price">$ ${product.price}</span>
+        <span class="product-price">$ ${product.price.toFixed(2)}</span>
         <div class="btn-container">
             <input type="number" min="1" max="100" id="request-quantity-${product.id}" name="request-quantity-${product.id}"  class="request-quantity" value="1">
             <button onclick="addProductsToCart(${product.id})" class="btn btn-request-product"

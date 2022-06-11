@@ -40,11 +40,13 @@ function updateCartInfo() {
             window.sessionStorage.getItem("categoriesStore")
         );
         item.categoryName = "Sin categoría";
-        categories.map((category) => {
-            if (category.id == item.category) {
-                item.categoryName = category.name;
-            }
-        });
+        if (categories) {
+            categories.map((category) => {
+                if (category.id == item.category) {
+                    item.categoryName = category.name;
+                }
+            });
+        }
         // Validate Img
         if (!item.url_image) {
             item.url_image = "./img/no-image.svg";
@@ -56,7 +58,7 @@ function updateCartInfo() {
         return `<tr>
       <td class="product-delete"><button class="btn" onclick="deleteCartItem(${i})"><i class="fas fa-trash"></i></button></td>
       <td class="product-name">
-          ${item.name} &nbsp;<span class="category">${
+          ${item.name} </br> &nbsp;<span class="category">${
       item.categoryName
     }</span> ${item.renderDiscount}
       </td>
@@ -154,12 +156,12 @@ function listenCartItems() {
         }
     }
 }
-
+// Update Item cuantity on cart
 function updateCartItemQuantity(itemId, newQuantity) {
     cartItems.map((item, i) => {
         if (item.id == itemId) {
             if (!newQuantity) {
-                newQuantity = item.quantity;
+                newQuantity = 0;
                 const input = document.getElementById(`quantity-${itemId}`);
                 input.value = newQuantity;
                 input.focus();
@@ -217,4 +219,28 @@ function updateTotals() {
 function deleteCartItem(i) {
     cartItems.splice(i, 1);
     updateCartInfo();
+}
+
+// PAGAR
+function pay() {
+    const lottieContainer = document.getElementsByClassName("cart-notification")[0];
+
+    // Cart contenedores
+    cartTableContainer = document.getElementsByClassName("cart-products")[0];
+    cartActionsContainer = document.getElementsByClassName("cart-actions")[0];
+    if (cartItems.length > 0) {
+        lottieContainer.innerHTML = `<lottie-player src="/img/lf30_editor_3nidetka.json" background="transparent" speed="0.7" style="width: 300px; height: 300px; margin: auto" 1 autoplay></lottie-player>
+        <div class="notification"><h3 style="text-align: center">Añada productos para realizar su compra</h3></div>
+        `;
+        cartItems = [];
+        updateCartInfo();
+        cartTableContainer.style.display = "none";
+    } else {
+        lottieContainer.innerHTML =
+            '<div class="notification"><h3 style="text-align: center">Añada productos para realizar su compra</h3></div>';
+    }
+    setTimeout(() => {
+        lottieContainer.innerHTML = "";
+        cartTableContainer.style.display = "block";
+    }, 5000);
 }

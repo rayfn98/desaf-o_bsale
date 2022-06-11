@@ -1,25 +1,104 @@
 @import "../global";
-.banner {
+.header {
     background: linear-gradient(90deg, $secondary-color, $third-color);
     margin: 0;
     color: #fff;
-    padding: 2rem 0;
+    padding: 1.5rem 0rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
     font-size: 1.2rem;
     text-align: center;
-    p {
-        margin: 0;
-        animation: promo-text-animated linear 1.4s infinite;
+    .title-tienda {
+        width: auto;
+        h1 {
+            text-transform: uppercase;
+            font-family: $font-titles;
+            font-size: 2.7rem;
+            font-weight: 600;
+            margin: 1rem 0;
+            width: 100%;
+            color: #fff;
+            animation: fade-in-up-title linear 1.2s 1;
+        }
+    }
+    .banner-content {
+        width: 50%;
+        text-align: center;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        .banner-description {
+            width: 50%;
+            h4 {
+                animation: fade-in linear 0.5s 1;
+                margin: 0;
+                .banner-discount {
+                    color: yellow;
+                    font-size: 1.4rem;
+                }
+            }
+        }
+        .img {
+            width: 40%;
+            padding: 0;
+            min-height: 120px;
+            img {
+                animation: fade-in linear 0.5s 1;
+                border-radius: 20px;
+                height: 120px;
+            }
+        }
     }
 }
 
-@keyframes promo-text-animated {
-    0% {
-        opacity: 1;
+@media screen and (max-width: 900px) and (orientation: portrait) {
+    .header {
+        .title-tienda {
+            width: 100%;
+            h1 {
+                font-size: 2rem;
+            }
+        }
+        .banner-content {
+            width: 100%;
+            .banner-description {
+                width: 50%;
+                h4 {
+                    font-size: 1rem;
+                }
+            }
+            .img {
+                width: auto;
+                min-height: 100px;
+                img {
+                    height: 100px;
+                    width: auto;
+                }
+            }
+        }
     }
-    50% {
-        opacity: 0.7;
+}
+
+// Animations
+@keyframes fade-in {
+    0% {
+        opacity: 0;
     }
     100% {
         opacity: 1;
+    }
+}
+
+@keyframes fade-in-up-title {
+    0%,
+    50% {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
     }
 }

@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/styles.css" />
     <script src="https://kit.fontawesome.com/a0fa2bbe71.js" crossorigin="anonymous"></script>
+    <!-- LottieFiles -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
     <script type="text/javascript" src="./js/components/categories.js"></script>
     <script type="text/javascript" src="./js/components/products.js"></script>
@@ -41,7 +43,6 @@
             <div class="logo">
                 <a href="#"><img src="./img/logo-prueba.jpg" alt="LOGO" /></a>
             </div>
-
             <div class="open-menu-btn">
                 <div class="request-btn">
                     <a href="" class="open-modal-request-btn">
@@ -62,12 +63,21 @@
         <!-- Content -->
         <div class="content">
             <!-- Header TItle -->
-            <div class="title-tienda">
-                <h1>Tienda BSALE</h1>
-            </div>
-            <hr style="margin: 0" />
-            <div class="banner">
-                <p id="banner-info">¡Obtén nuevas promociones en BSALE!</p>
+
+            <!-- <hr style="margin: 0" /> -->
+            <div class="header">
+                <!-- <h3 id="banner-info">¡Obtén nuevas promociones en BSALE!</h3> -->
+                <div class="title-tienda">
+                    <h1>Tienda BSALE</h1>
+                </div>
+                <div class="banner-content">
+                    <div class="banner-description">
+                        <h4>¡Obtén los mejores descuentos!</h4>
+                    </div>
+                    <div class="img">
+                        <img src="/img/logo-prueba.jpg" alt="" srcset="" />
+                    </div>
+                </div>
             </div>
             <hr style="margin: 0" />
             <!-- Products Filter -->
@@ -205,8 +215,8 @@
         <!-- Fín de Menú -->
 
         <!-- Modal Request Pedidos -->
-        <div class="modal-request-container open">
-            <div class="modal-content modal-open" id="modal-request-content">
+        <div class="modal-request-container closed">
+            <div class="modal-content modal-closed" id="modal-request-content">
                 <div class="close-modal-request-btn">
                     <span id="close-modal-icon">
               <div></div>
@@ -216,7 +226,9 @@
                 <!-- Cart Content -->
                 <div class="cart-content">
                     <div class="cart-title">
-                        <h2><i class="fas fa-shopping-bag"></i>&nbsp; Carrito (<span class="request-quantity-number"></span> Items)</h2>
+                        <h2>
+                            <i class="fas fa-shopping-bag"></i>&nbsp; Carrito (<span class="request-quantity-number"></span> Items)
+                        </h2>
                     </div>
                     <div class="cart-products">
                         <table style="width: 100%">
@@ -230,9 +242,7 @@
                                     <th>Subtotal</th>
                                 </tr>
                             </thead>
-                            <tbody class="cart-items-container">
-
-                            </tbody>
+                            <tbody class="cart-items-container"></tbody>
                             <!-- <tfoot>
                                 <tr>
                                     <td></td>
@@ -251,10 +261,13 @@
                             <p>Ahorras: $ <span class="saved-money">0</span> &nbsp;</p>
                         </div>
                         <div class="btn-container">
-                            <button class="btn">
-                                Pagar &nbsp;<i class="fas fa-credit-card"></i>
-                              </button>
+                            <button class="btn" onclick="pay()">
+                  Pagar &nbsp;<i class="fas fa-credit-card"></i>
+                </button>
                         </div>
+                    </div>
+                    <div class="cart-notification">
+
                     </div>
                 </div>
             </div>

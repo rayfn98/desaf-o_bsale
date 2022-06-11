@@ -824,7 +824,7 @@ html {
   color: #76169c;
   box-shadow: none;
   border: 1px solid #76169c;
-  font-size: -8rem;
+  font-size: 0.8rem;
 }
 .modal-request-container .modal-content .cart-content .cart-products table tbody tr td.product-name {
   text-align: left;
@@ -886,7 +886,6 @@ html {
   border-radius: 25px;
   padding: 0.7rem 2rem;
 }
-
 @media screen and (min-width: 1366px) {
   .modal-request-container .modal-content {
     width: 90vw;
@@ -1221,9 +1220,6 @@ html {
 .filter-reset-container button,
 .view-more-container button {
   cursor: pointer;
-  border: 1px solid #8625ac;
-  color: #8625ac;
-  background: transparent;
   margin: 0.8rem 0;
 }
 .filter-reset-containerhidden,
@@ -1548,28 +1544,101 @@ html {
     transform: translateX(4rem) scaleX(0);
   }
 }
-.banner {
+.header {
   background: linear-gradient(90deg, #10d4d4, #8625ac);
   margin: 0;
   color: #fff;
-  padding: 2rem 0;
+  padding: 1.5rem 0rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
   font-size: 1.2rem;
   text-align: center;
 }
-.banner p {
+.header .title-tienda {
+  width: auto;
+}
+.header .title-tienda h1 {
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  font-size: 2.7rem;
+  font-weight: 600;
+  margin: 1rem 0;
+  width: 100%;
+  color: #fff;
+  animation: fade-in-up-title linear 1.2s 1;
+}
+.header .banner-content {
+  width: 50%;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.header .banner-content .banner-description {
+  width: 50%;
+}
+.header .banner-content .banner-description h4 {
+  animation: fade-in linear 0.5s 1;
   margin: 0;
-  animation: promo-text-animated linear 1.4s infinite;
+}
+.header .banner-content .banner-description h4 .banner-discount {
+  color: yellow;
+  font-size: 1.4rem;
+}
+.header .banner-content .img {
+  width: 40%;
+  padding: 0;
+  min-height: 120px;
+}
+.header .banner-content .img img {
+  animation: fade-in linear 0.5s 1;
+  border-radius: 20px;
+  height: 120px;
 }
 
-@keyframes promo-text-animated {
-  0% {
-    opacity: 1;
+@media screen and (max-width: 900px) and (orientation: portrait) {
+  .header .title-tienda {
+    width: 100%;
   }
-  50% {
-    opacity: 0.7;
+  .header .title-tienda h1 {
+    font-size: 2rem;
+  }
+  .header .banner-content {
+    width: 100%;
+  }
+  .header .banner-content .banner-description {
+    width: 50%;
+  }
+  .header .banner-content .banner-description h4 {
+    font-size: 1rem;
+  }
+  .header .banner-content .img {
+    width: auto;
+    min-height: 100px;
+  }
+  .header .banner-content .img img {
+    height: 100px;
+    width: auto;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
   }
   100% {
     opacity: 1;
+  }
+}
+@keyframes fade-in-up-title {
+  0%, 50% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
   }
 }
 body {
@@ -1678,19 +1747,6 @@ html {
 .main-grid-container .content {
   z-index: 0;
 }
-.main-grid-container .content .title-tienda {
-  text-align: center;
-  display: flex;
-  line-height: 4.2rem;
-  justify-content: center;
-}
-.main-grid-container .content .title-tienda h1 {
-  text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
-  font-size: 2.7rem;
-  font-weight: 600;
-  margin: 1rem 0;
-}
 .main-grid-container .menu {
   z-index: 100;
 }
@@ -1721,7 +1777,6 @@ html {
 }
 
 .content .title-tienda {
-  background-color: white;
   z-index: 0;
   color: #181818;
 }

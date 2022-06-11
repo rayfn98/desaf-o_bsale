@@ -132,7 +132,7 @@
                                         color: $main-color;
                                         box-shadow: none;
                                         border: 1px solid $main-color;
-                                        font-size: -8rem;
+                                        font-size: .8rem;
                                     }
                                 }
                                 &.product-name {
@@ -211,6 +211,7 @@
                     padding: 0.7rem 2rem;
                 }
             }
+            .cart-notification {}
         }
     }
 }
