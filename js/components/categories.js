@@ -1,7 +1,7 @@
 function showCategories(categories) {
     const showCategoriesList = categories.map((category, i) => {
-        return `<li>
-            <a href="#" class="active"> ${category.name}</a>
+        return `<li class="category">
+            <a href="#" class="active category-name category-${category.id}" onclick="filterByCategory(${category.id})"> ${category.name}</a>
             </li>`;
     });
     const categoriesContainer =
@@ -19,7 +19,7 @@ function getCategories(init = false) {
         })
         .then((res) => {
             if (init) {
-                getProducts(res.data);
+                getProducts();
             }
             showCategories(res.data);
             const categories = JSON.stringify(res.data);

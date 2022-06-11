@@ -1,6 +1,8 @@
 @import "../global";
 .products-container {
     padding-bottom: 2.4rem;
+    min-height: 400px;
+    transition: all ease-in-out .2s;
     .card-product {
         display: flex;
         width: 24%;

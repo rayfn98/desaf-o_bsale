@@ -3,6 +3,7 @@
 @import "./components/modal-request-list";
 @import "./components/products-filter.scss";
 @import "./components/footer.scss";
+@import "./components/banner.scss";
 @import "./global.scss"; //GLOBAR VARS
 //Colores
 .main-grid-container {
@@ -23,7 +24,7 @@
             h1 {
                 text-transform: uppercase;
                 font-family: $font-titles;
-                font-size: 4rem;
+                font-size: 2.7rem;
                 font-weight: 600;
                 margin: 1rem 0;
             }
@@ -52,7 +53,7 @@ $border-radius-cards: 15px;
         margin: 1.5rem;
         background: #fff;
         overflow: hidden;
-        animation: fade-in linear .4s 1;
+        animation: fade-in-card linear .3s 1;
         border: {
             radius: $border-radius-cards;
         }
@@ -109,10 +110,10 @@ $border-radius-cards: 15px;
 }
 
 // ANIMACIONES
-@keyframes fade-in {
+@keyframes fade-in-card {
     0% {
         opacity: 0;
-        transform: scale(.1);
+        transform: scale(.8);
     }
     100% {
         opacity: 1;

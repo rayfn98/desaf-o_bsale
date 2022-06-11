@@ -1,0 +1,25 @@
+@import "../global";
+.banner {
+    background: linear-gradient(90deg, $secondary-color, $third-color);
+    margin: 0;
+    color: #fff;
+    padding: 2rem 0;
+    font-size: 1.2rem;
+    text-align: center;
+    p {
+        margin: 0;
+        animation: promo-text-animated linear 1.4s infinite;
+    }
+}
+
+@keyframes promo-text-animated {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 1;
+    }
+}

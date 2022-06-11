@@ -1,5 +1,5 @@
 // Mostrar productos filtrados
-const showFilteredProducts = (products, query, display = false) => {
+function showFilteredProducts(products, query = "", display = false) {
     window.sessionStorage.setItem("productsStore", JSON.stringify(products));
     let filteredList;
     if (products.length) {
@@ -7,7 +7,7 @@ const showFilteredProducts = (products, query, display = false) => {
             .slice(0, 5)
             .map((product, i) => {
                 if (!product.url_image.length) {
-                    product.url_image = "/img/no-image.svg";
+                    product.url_image = "./img/no-image.svg";
                 }
                 return `<div class="quick-result-item prevent-hidden">
             <div class="item-img prevent-hidden">
@@ -46,13 +46,18 @@ const showFilteredProducts = (products, query, display = false) => {
             )[0];
             const resultsText = document.getElementById("filter-results");
             filterResults.classList.remove("hidden");
-            resultsText.innerHTML = `Resultados de:"${query} <br> <span style="font-size: 1rem">${products.length} productos encontrados</span>"`;
-        } else {}
+            resultsText.innerHTML = `Resultados de:"${query}" <br> <span style="font-size: 1rem">${products.length} productos encontrados</span>`;
+        } else {
+            getProducts(true);
+        }
     }
-};
+}
 
 const getFilteredProducts = (displayOnContainer = false) => {
     const query = document.getElementById("input-products-filter").value;
+    if (displayOnContainer) {
+        startProductsLoading();
+    }
     axios
         .post(
             `${BACKEND_URL}/products/search?s=${query}`, {}, {
@@ -103,6 +108,12 @@ function initInteractionFilters() {
     });
 
     inputFilter.addEventListener("input", (event) => {
+        if (
+            event.inputType === "deleteContentBackward" &&
+            event.target.value == ""
+        ) {
+            getProducts(true);
+        }
         if (event.target.value.length > 2) {
             quickResultsContainer.classList.remove("hidden");
             getFilteredProducts();
@@ -113,8 +124,8 @@ function initInteractionFilters() {
     });
 
     inputFilter.addEventListener("keyup", (event) => {
-        if (event.key == "Backspace") {
-            initProducts();
+        if (event.key == "Enter") {
+            getFilteredProducts(true);
         }
     });
 }

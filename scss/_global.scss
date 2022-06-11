@@ -1,16 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600&display=swap");
-$main-color: rgb(144,
-7,
-7);
-$secondary-color: rgb(243,
-191,
-20);
-$third-color: rgb(15,
-100,
-15);
-$link-color: rgb(0,
-89,
-141);
+$main-color: #76169c;
+$secondary-color: #10d4d4;
+$third-color: #8625ac;
 $grey-color: #505050;
 $title-bg-color: rgb(255,
 255,
@@ -82,7 +73,7 @@ html {
 
 /*Loader*/
 
-#loader-container {
+.loader-container {
     background-color: rgba(255, 255, 255, 1);
     height: 100%;
     width: 100%;
@@ -92,21 +83,7 @@ html {
     -o-transition: all 0.5s ease-in;
     transition: all 0.5s ease-in;
     z-index: 99999;
-    #loader-img,
-    #loader-img-2 {
-        width: 8rem;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 20%;
-        margin: auto;
-        animation: fade-in 0.25s linear 1;
-        #logo-menu {
-            margin-top: -10%;
-        }
-    }
-    #loader {
+    .loader {
         background-color: #b61aab;
         // border-bottom-color: rgb(202, 5, 124);
         height: 6px;

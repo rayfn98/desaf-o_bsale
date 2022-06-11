@@ -21,10 +21,11 @@
     <link rel="stylesheet" href="css/styles.css" />
     <script src="https://kit.fontawesome.com/a0fa2bbe71.js" crossorigin="anonymous"></script>
 
-    <script type="text/javascript" src="./js/categories.js"></script>
+    <script type="text/javascript" src="./js/components/categories.js"></script>
     <script type="text/javascript" src="./js/components/products.js"></script>
-    <script type="text/javascript" src="./js/components/searcher.js"></script>
-    <script type="text/javascript" src="./js/components/renderers.js"></script>
+    <script type="text/javascript" src="./js/components/categoryFilter.js"></script>
+    <script type="text/javascript" src="./js/components/cart.js"></script>
+    <script type="text/javascript" src="./js/functionalities/productSorting.js"></script>
     <script type="text/javascript" src="./js/main.js"></script>
 
     <!-- AXIOS -->
@@ -55,14 +56,18 @@
           </span>
             </div>
         </div>
-        <div id="loader-container">
-            <div id="loader" data-aos="zoom-in" style="transition: all ease-in-out 0.4s 0.12s"></div>
+        <div class="loader-container" id="loader-container">
+            <div class="loader" id="loader" data-aos="zoom-in" style="transition: all ease-in-out 0.4s 0.12s"></div>
         </div>
         <!-- Content -->
         <div class="content">
             <!-- Header TItle -->
             <div class="title-tienda">
-                <h1>App</h1>
+                <h1>Tienda BSALE</h1>
+            </div>
+            <hr style="margin: 0" />
+            <div class="banner">
+                <p id="banner-info">¡Obtén nuevas promociones en BSALE!</p>
             </div>
             <hr style="margin: 0" />
             <!-- Products Filter -->
@@ -73,7 +78,7 @@
                         <!-- <li>
                             <a class="offers-category" href="#"> Ofertas</a>
                         </li> -->
-                        <p>Categorías...</p>
+                        <p>Cargando categorías...</p>
                     </ul>
                 </div>
                 <hr class="products-filter-separator" />
@@ -92,36 +97,39 @@
                     </div>
                 </div>
             </div>
+            <!-- Sorters -->
+            <div class="sorter-container">
+                <h4>Ordenar por: &nbsp;</h4>
+                <select name="sorter-select" id="sorter-select" onchange="sortProducts(this.value)">
+            <option value="none" selected>Ninguno</option>
+            <option value="nameAsc">Nombre: A - Z</option>
+            <option value="nameDesc">Nombre: Z - A</option>
+            <option value="priceAsc">Precio: Menor a mayor</option>
+            <option value="priceDesc">Precio: Mayor a menor</option>
+          </select>
+            </div>
             <!-- Filter Results -->
             <div class="filter-reset-container hidden">
                 <h3 id="filter-results"></h3>
-                <button class="btn" onclick="initProducts()">
+                <button class="btn" onclick="getProducts(true)">
             Ver todos los productos
           </button>
             </div>
             <!-- Card products -->
             <div class="card-container products-container">
-                <p>Productos...</p>
+                <p>Cargando productos...</p>
             </div>
             <div class="view-more-container">
-                <button class="btn btn-view-more" onclick="showProducts(true)">Ver más</button>
+                <button class="btn btn-view-more" onclick="showProducts(true)">
+            Ver más
+          </button>
+                <p class="total-products-displayed">20 Productos</p>
             </div>
             <!-- Footer -->
             <footer class="footer">
                 <div class="footer-content">
                     <div class="business-content">
                         <h3>Desarrollado por Ray Flores</h3>
-
-                        <div class="rounded-social-buttons mt-4">
-                            <a class="social-button facebook" href="#" target="_blank"><i class="fab fa-facebook-f"></i
-                ></a>
-                            <a class="social-button linkedin" href="#" target="_blank"><i class="fab fa-linkedin-in"></i
-                ></a>
-                            <a class="social-button instagram" href="#" target="_blank"><i class="fab fa-instagram"></i
-                ></a>
-                            <a class="social-button whatsapp" href="http://www.whatsapp.com" target="_blank"><i class="fab fa-whatsapp"></i
-                ></a>
-                        </div>
                     </div>
                     <div class="dev-content">
                         <div class="dev-info">
@@ -169,14 +177,9 @@
                                 </a>
                             </li>
 
+                            <li></li>
                             <li>
-                                <a class="" href="">
-                                    <i class="fas fa-user-alt"></i>&nbsp;
-                                    <span class="option-name">Mi cuenta</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="" href="log-in">
+                                <a class="" href="#">
                                     <i class="fas fa-sign-out-alt"></i>&nbsp;
                                     <span class="option-name">Iniciar Sesión</span>
                                 </a>
@@ -189,8 +192,8 @@
                                         <i class="fas fa-shopping-bag"></i>
                                     </div>
                                     Ver Pedido
-                                    <div class="request-quantity">
-                                        <span class="request-quantity-number">0</span>
+                                    <div class="request-quantity request-quantity-number">
+                                        0
                                     </div>
                                 </a>
                             </li>
@@ -210,13 +213,18 @@
               <div></div>
             </span>
                 </div>
+                <!-- Cart Content -->
+                <div class="cart-content">
+                    Hola
+                </div>
             </div>
         </div>
         <!-- Final Modal Pedidos -->
     </div>
 
-    <script type="text/javascript" src="./js/components/menu.js"></script>
-    <script type="text/javascript" src="./js/components/modal.js"></script>
+    <script type="text/javascript" src="./js/interaction/searcher.js"></script>
+    <script type="text/javascript" src="./js/interaction/menu.js"></script>
+    <script type="text/javascript" src="./js/interaction/modal.js"></script>
 </body>
 
 </html>

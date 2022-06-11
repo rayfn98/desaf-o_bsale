@@ -1,11 +1,10 @@
 @import "../global.scss"; //GLOBAR VARS
-@import "../components/rounded-social"; // Ìconos Rounded para Redes Sociales
 footer {
     .footer-content {
         background-color: rgb(255, 255, 255);
         background-position: center center;
         background-size: cover;
-        border-top: 1px solid #C6C6C6;
+        border-top: 1px solid #c6c6c6;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
@@ -45,7 +44,7 @@ footer {
                     width: 100%;
                     a {
                         text-decoration: none;
-                        color: $link-color;
+                        color: $third-color;
                     }
                 }
             }
@@ -70,13 +69,13 @@ footer {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                padding: 1rem .5rem;
+                padding: 1rem 0.5rem;
                 h3 {
                     line-height: 0;
                 }
             }
             .dev-content {
-                padding: 0 0 .5rem 0;
+                padding: 0 0 0.5rem 0;
                 .img-container {}
             }
             .copyright {

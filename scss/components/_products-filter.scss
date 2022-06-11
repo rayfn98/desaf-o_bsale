@@ -4,13 +4,9 @@
     position: inherit;
     border-radius: 0 0 15px 15px;
     width: 100%;
-    // background-color: rgb(228, 228, 228);
     background-color: #fff;
-    // background-image: url('../img/Fondo-food-pattern.svg');
     background-position: center center;
     background-size: cover;
-    // background: linear-gradient(90deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.72));
-    // backdrop-filter: brightness(0.8) contrast(0.9);
     padding: 1rem 0;
     .products-filter {
         display: flex;
@@ -62,7 +58,7 @@
             .quick-results {
                 position: absolute;
                 background-color: rgba($color: #fff, $alpha: 0.8);
-                backdrop-filter: blur(7px);
+                backdrop-filter: saturate(200%) blur(30px);
                 border-radius: 0 0 10px 10px;
                 box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.15);
                 -webkit-box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.15);
@@ -124,7 +120,7 @@
                             margin: 0;
                             font-size: 0.7rem;
                             text-align: center;
-                            padding: 0rem .4rem;
+                            padding: 0rem 0.4rem;
                             border-radius: 25px;
                             border: 1px solid $third-color;
                         }
@@ -135,7 +131,7 @@
                             border-radius: 5px;
                             border: 1px solid $third-color;
                             cursor: pointer;
-                            transition: all ease-in-out .1s;
+                            transition: all ease-in-out 0.1s;
                             &:active {
                                 background-color: $third-color;
                                 color: #fff;
@@ -172,7 +168,7 @@
                 margin-bottom: 0.5rem;
                 a {
                     height: 20px;
-                    width: 120px;
+                    width: 100px;
                     text-transform: capitalize;
                     background-color: #fff;
                     margin: 0 1rem;
@@ -223,8 +219,11 @@
 .view-more-container {
     display: flex;
     justify-content: center;
-    margin-top: 1rem;
     flex-wrap: wrap;
+    .total-products-displayed {
+        text-align: center;
+        width: 100%;
+    }
     h3 {
         text-align: center;
         margin-bottom: 0rem;
@@ -243,8 +242,19 @@
     }
 }
 
-.view-more-container {
-    margin-bottom: 2.4rem;
+// Sorters
+.sorter-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    #sorter-select {
+        border-radius: 25px;
+        padding: 0 0.5rem;
+        height: 2rem;
+        border: 1px solid rgba($main-color, 1);
+    }
 }
 
 @media screen and(max-width: 1366px) {

@@ -1,45 +1,36 @@
 // OBTENER PRODUCTOS Y CATEGORÍAS
-const getProducts = () => {
-    startLoading();
-    axios
-        .get(`${BACKEND_URL}/products`, {
-            mode: "no-cors",
-            headers: {
-                "Access-Control-Allow-Origin": "*",
-            },
-        })
-        .then((res) => {
-            const productsStore = JSON.stringify(res.data);
-            window.sessionStorage.setItem("productsStore", productsStore);
-            showProducts();
-        })
-        .catch((e) => {
-            console.error(e);
-        })
-        .finally(() => {
-            endLoading();
-        });
-};
 
-let displayProductsLimit = 12;
+let displayLimit = 12;
 
 function showProducts(add = false) {
     const products = JSON.parse(window.sessionStorage.getItem("productsStore"));
     const categories = JSON.parse(
         window.sessionStorage.getItem("categoriesStore")
     );
+    // En caso de que se precsione el botón Ver más
     if (add) {
-        displayProductsLimit = displayProductsLimit + 12;
-
-    }
-    const btnViewMore = document.getElementsByClassName("btn-view-more")[0];
-    if (displayProductsLimit >= products.length) {
-        btnViewMore.style.visibility = "hidden";
+        displayLimit = displayLimit + 12;
     } else {
-        btnViewMore.style.visibility = "visible";
+        displayLimit = 12;
+        // Total de Prouctos Mostrados
     }
+    const totalDisplayed = document.getElementsByClassName(
+        "total-products-displayed"
+    )[0];
+    totalDisplayed.innerHTML = `Mostrando ${displayLimit} productos de ${products.length}`;
+
+    // Botón de Ver más
+    const btnViewMore = document.getElementsByClassName("btn-view-more")[0];
+    if (displayLimit >= products.length) {
+        btnViewMore.style.display = "none";
+        totalDisplayed.innerHTML = `Mostrando ${products.length} productos de ${products.length}`;
+    } else {
+        btnViewMore.style.display = "block";
+    }
+
     const showProductsList = products
-        .slice(0, displayProductsLimit)
+        .sort()
+        .slice(0, displayLimit)
         .map((product, i) => {
             if (product.discount > 0) {
                 product.on_sale = true;
@@ -54,7 +45,7 @@ function showProducts(add = false) {
             }
 
             if (!product.url_image) {
-                product.url_image = "/img/no-image.svg";
+                product.url_image = "./img/no-image.svg";
             }
 
             product.category_name = "Sin categoría";
@@ -82,7 +73,7 @@ function showProducts(add = false) {
         <span class="product-price">$ ${product.price}</span>
         <div class="btn-container">
             <input type="number" min="1" max="100" id="request-quantity-${product.id}" name="request-quantity-${product.id}"  class="request-quantity" value="1">
-            <button onClick="addToCart(${product.id})" class="btn btn-request-product"
+            <button onclick="addProductsToCart(${product.id})" class="btn btn-request-product"
             ><i class="fa fa-cart-plus"></i></button>
         </div>
     </div>
@@ -103,28 +94,60 @@ function showProducts(add = false) {
     }
 }
 
-function updateProducts() {
-    showProducts();
+function getProducts(reset = false) {
+    startProductsLoading();
+    axios
+        .get(`${BACKEND_URL}/products`, {
+            mode: "no-cors",
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+            },
+        })
+        .then((res) => {
+            const productsStore = JSON.stringify(res.data);
+            window.sessionStorage.setItem("productsStore", productsStore);
+            showProducts();
+            if (reset) {
+                const filterResults = document.getElementsByClassName(
+                    "filter-reset-container"
+                )[0];
+                const resultsText = document.getElementById("filter-results");
+                filterResults.classList.add("hidden");
+                resultsText.innerHTML = "";
+                resetSorter();
+            }
+        })
+        .catch((e) => {
+            console.error(e);
+        })
+        .finally(() => {
+            endProductsLoading();
+        });
 }
 
 function initProducts() {
     getCategories(true);
+}
+
+function endProductsLoading() {
+    let contenedor = document.getElementsByClassName("products-container")[0];
+    contenedor.style.filter = "opacity(1)";
+    contenedor.style.transform = "scale(1)";
+}
+
+function startProductsLoading() {
+    // Ocultar Texto de Resultados
     const filterResults = document.getElementsByClassName(
         "filter-reset-container"
     )[0];
-    const resultsText = document.getElementById("filter-results");
     filterResults.classList.add("hidden");
-    resultsText.innerHTML = "";
-}
-
-function endLoading() {
-    let contenedor = document.getElementById("loader-container");
-    contenedor.style.visibility = "hidden";
-    contenedor.style.opacity = "0";
-}
-
-function startLoading() {
-    let contenedor = document.getElementById("loader-container");
-    contenedor.style.visibility = "visible";
-    contenedor.style.opacity = "1";
+    // Mostrar Loader
+    const productsContainer =
+        document.getElementsByClassName("products-container")[0];
+    productsContainer.innerHTML = `
+        <div class="loader-container" style="background-color: transparent; position: relative">
+            <div class="loader" data-aos="zoom-in" style="transition: all ease-in-out 0.4s 0.12s"></div>
+        </div>
+        
+    `;
 }
