@@ -19,7 +19,7 @@ function getCategories(init = false) {
         })
         .then((res) => {
             if (init) {
-                getProducts();
+                getProducts(true);
             }
             showCategories(res.data);
             const categories = JSON.stringify(res.data);

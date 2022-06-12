@@ -17,16 +17,14 @@ function startLoading() {
 
 window.onload = function() {
     initApp();
+    initProducts();
 };
 
 function initApp() {
-    initProducts();
     initInteractionFilters();
     initCart();
+    connectToBackend();
     endLoading();
-
-    // Keep Alive - Get Offer Banner
-    getOfferLoop();
 }
 
 function getOfferLoop() {
@@ -56,11 +54,33 @@ function getOfferLoop() {
             .catch((e) => {
                 console.error(e);
                 // En caso de que falle, reiniciar conexión en 10 s
-                clearInterval();
-                setTimeout(() => {
-                    getOfferLoop()
-                }, 10000);
+                displayFloatingNotification("Reconectando...", "success");
             })
             .finally(() => {});
-    }, 4000);
+    }, 7000);
+}
+
+function connectToBackend() {
+    axios
+        .get(`${BACKEND_URL}/`, {
+            mode: "no-cors",
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+            },
+        })
+        .then((res) => {
+            displayFloatingNotification("Conexión establecida", "success");
+            // Testing Keep Alive - Get Offer Banner
+            getOfferLoop();
+        })
+        .catch((e) => {
+            console.error(e);
+            // En caso de que falle, reiniciar conexión en 10 s
+            displayFloatingNotification(
+                "Reintentando Iniciar applicación...",
+                "success"
+            );
+            connectToBackend();
+        })
+        .finally(() => {});
 }

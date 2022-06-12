@@ -1,4 +1,4 @@
-function displayServerError(
+function displayContainerNotification(
     msg = "Error al cargar productos",
     btnAction = "initApp()"
 ) {

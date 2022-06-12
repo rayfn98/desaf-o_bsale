@@ -27,31 +27,33 @@ function showProducts(add = false) {
         btnViewMore.style.display = "block";
     }
 
-    const showProductsList = products.slice(0, displayProductsLimit).map((product, i) => {
-        if (product.discount > 0) {
-            product.on_sale = true;
-            product.display_discount = `
+    const showProductsList = products
+        .slice(0, displayProductsLimit)
+        .map((product, i) => {
+            if (product.discount > 0) {
+                product.on_sale = true;
+                product.display_discount = `
       <div class="discount">
         <p class="percentage">% ${product.discount}</p>
         <span class="">De descuento</span>
       </div>
       `;
-        } else {
-            product.display_discount = "";
-        }
-
-        if (!product.url_image) {
-            product.url_image = "./img/no-image.svg";
-        }
-
-        product.category_name = "Sin categoría";
-        // Obtener nombre de categoría
-        categories.forEach((category) => {
-            if (product.category == category.id) {
-                product.category_name = category.name;
+            } else {
+                product.display_discount = "";
             }
-        });
-        return `
+
+            if (!product.url_image) {
+                product.url_image = "./img/no-image.svg";
+            }
+
+            product.category_name = "Sin categoría";
+            // Obtener nombre de categoría
+            categories.forEach((category) => {
+                if (product.category == category.id) {
+                    product.category_name = category.name;
+                }
+            });
+            return `
     <div class="card card-product">
     ${product.display_discount}
     <div class="product-img-container">
@@ -68,14 +70,20 @@ function showProducts(add = false) {
     <div class="product-price-container">
         <span class="product-price">$ ${product.price.toFixed(2)}</span>
         <div class="btn-container">
-            <input type="number" min="1" max="100" id="request-quantity-${product.id}" name="request-quantity-${product.id}"  class="request-quantity" value="1">
-            <button onclick="addProductsToCart(${product.id})" class="btn btn-request-product"
+            <input type="number" min="1" max="100" id="request-quantity-${
+              product.id
+            }" name="request-quantity-${
+        product.id
+      }"  class="request-quantity" value="1">
+            <button onclick="addProductsToCart(${
+              product.id
+            })" class="btn btn-request-product"
             ><i class="fa fa-cart-plus"></i></button>
         </div>
     </div>
     </div>
     </div>`;
-    });
+        });
     const productsContainer =
         document.getElementsByClassName("products-container")[0];
     if (products.length) {
@@ -116,7 +124,10 @@ function getProducts(reset = false) {
         })
         .catch((e) => {
             console.error(e);
-            displayServerError()
+            displayContainerNotification(
+                "Error al obtener productos",
+                (btnAction = "getProducts(true)")
+            );
         })
         .finally(() => {
             endProductsLoading();
@@ -128,14 +139,12 @@ function initProducts() {
     getCategories(true);
 }
 
-
 // End Loading
 function endProductsLoading() {
     let container = document.getElementsByClassName("products-container")[0];
     container.style.filter = "opacity(1)";
     container.style.transform = "scale(1)";
 }
-
 
 // Show Loading while getting products
 function startProductsLoading() {

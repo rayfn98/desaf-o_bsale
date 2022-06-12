@@ -29,7 +29,7 @@ function filterByCategory(id) {
             resultsText.innerHTML = `Productos de ${categorySelected}: <br> <span style="font-size: 1rem">${res.data.length} productos encontrados</span>`;
         }).catch(e => {
             console.error(e);
-            displayServerError(`Error al filtrar por categoría ${categorySelected}`, `filterByCategory(${id})`)
+            displayContainerNotification(`Error al filtrar por categoría ${categorySelected}`, `filterByCategory(${id})`)
         }).finally(() => {
             endProductsLoading()
         });
