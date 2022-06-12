@@ -46,6 +46,7 @@ function showFilteredProducts(products, query = "", display = false) {
         quickResultsContainer.classList.add("hidden");
         if (query.length) {
             showProducts();
+            resetCategories();
             const filterResults = document.getElementsByClassName(
                 "filter-reset-container"
             )[0];
@@ -79,7 +80,6 @@ const getFilteredProducts = (displayOnContainer = false) => {
             } else {
                 showFilteredProducts(res.data, query, true);
             }
-
         })
         .catch((e) => {
             console.error(e);
@@ -124,14 +124,17 @@ function initInteractionFilters() {
             event.inputType === "deleteContentBackward" &&
             event.target.value == ""
         ) {
-            getProducts(true);
+            // Validate if there is any active category filter
+            if (!categoryActive) {
+                getProducts(true);
+            }
         }
         if (event.target.value.length > 2) {
             quickResultsContainer.classList.remove("hidden");
             getFilteredProducts();
         } else {
-            quickResultsContainer.classList.add("hidden");
             quickResultsContainer.innerHTML = "";
+            quickResultsContainer.classList.add("hidden");
         }
     });
 

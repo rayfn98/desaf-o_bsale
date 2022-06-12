@@ -2,7 +2,7 @@
 function showCategories(categories) {
     const showCategoriesList = categories.map((category, i) => {
         return `<li class="category">
-            <a href="#" class="active category-name category-${category.id}" onclick="filterByCategory(${category.id})"> ${category.name}</a>
+            <a href="#" class="category-name category-${category.id}" onclick="filterByCategory(${category.id})"> ${category.name}</a>
             </li>`;
     });
     const categoriesContainer =

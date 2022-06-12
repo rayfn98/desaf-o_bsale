@@ -121,6 +121,7 @@ function getProducts(reset = false) {
                 filterResults.classList.add("hidden");
                 resultsText.innerHTML = "";
                 resetSorter();
+                resetCategories()
             }
         })
         .catch((e) => {

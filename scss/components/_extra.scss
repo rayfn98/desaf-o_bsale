@@ -66,6 +66,13 @@
     .notification {
         max-width: 90vw;
     }
+    .notification-floating {
+        .notification {
+            width: 55vw;
+            font-size: .9rem;
+            bottom: 1.2rem;
+        }
+    }
 }
 
 @keyframes show-floating-notification {

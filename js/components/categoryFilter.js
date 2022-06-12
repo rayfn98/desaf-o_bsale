@@ -1,4 +1,6 @@
 // FIlter by category
+let categoryActive = false;
+
 function filterByCategory(id) {
     const categories = document.getElementsByClassName("category-name");
     let categorySelected;
@@ -6,6 +8,10 @@ function filterByCategory(id) {
     for (let category of categories) {
         if (category.classList.contains(`category-${id}`)) {
             categorySelected = category.innerHTML.toUpperCase();
+            category.classList.add("active");
+            categoryActive = true;
+        } else {
+            category.classList.remove("active");
         }
     }
     // Request products by category
@@ -41,4 +47,14 @@ function filterByCategory(id) {
         .finally(() => {
             endProductsLoading();
         });
+}
+
+// Remove active category filters
+function resetCategories() {
+    const categories = document.getElementsByClassName("category-name");
+    // Loop for removing the active class of all the categories
+    for (let category of categories) {
+        category.classList.remove("active");
+        categoryActive = false;
+    }
 }

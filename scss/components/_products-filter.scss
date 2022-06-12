@@ -163,6 +163,12 @@
             justify-content: center;
             list-style: none;
             padding: 0;
+            .category-name {
+                &.active {
+                    background-color: $main-color;
+                    color: #fff;
+                }
+            }
             li {
                 margin-top: 0.5rem;
                 margin-bottom: 0.5rem;

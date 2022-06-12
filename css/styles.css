@@ -1120,6 +1120,10 @@ html {
   list-style: none;
   padding: 0;
 }
+.products-filter-container .categories-container .list-categories .category-name.active {
+  background-color: #76169c;
+  color: #fff;
+}
 .products-filter-container .categories-container .list-categories li {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -1485,6 +1489,12 @@ footer .footer-content .copyright p {
 @media screen and (max-width: 600px) {
   .notification {
     max-width: 90vw;
+  }
+
+  .notification-floating .notification {
+    width: 55vw;
+    font-size: 0.9rem;
+    bottom: 1.2rem;
   }
 }
 @keyframes show-floating-notification {

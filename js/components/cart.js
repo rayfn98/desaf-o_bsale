@@ -149,7 +149,7 @@ function saveCartData() {
     window.localStorage.setItem("cartItems", JSON.stringify(cartItems));
 }
 
-// Functions for changing quantity in Cart Table 
+// Functions for changing quantity in Cart Table
 
 // UPDATE quantity on cart table
 function listenCartItems() {
@@ -254,5 +254,8 @@ function pay() {
         lottieContainer.innerHTML = "";
         cartTableContainer.style.display = "block";
         cartActionsContainer.style.display = "flex";
-    }, 5000);
+        // Close Modal and go back home
+        closeModalRequest();
+        anchorLink();
+    }, 4200);
 }
