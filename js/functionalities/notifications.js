@@ -1,3 +1,4 @@
+// Display notifications on products container
 function displayContainerNotification(
     msg = "Error al cargar productos",
     btnAction = "initApp()"
@@ -10,11 +11,12 @@ function displayContainerNotification(
     </div>`;
 }
 
+// Display fixed notification - left bottom
 function displayFloatingNotification(msg = "Notificación", type = "info") {
     // Notification ID
     notificationId = `noti-${new Date()}`;
 
-    // Contenedor
+    // Float notification container
     const notificationFloating = document.getElementById(
         "notification-container"
     );
@@ -22,6 +24,7 @@ function displayFloatingNotification(msg = "Notificación", type = "info") {
         <h3 style="text-align: center">${msg}</h3>
     </div>`;
 
+    // Hid notification
     const notification = document.getElementById(notificationId);
     setTimeout(() => {
         notification.classList.add("hid-notification");

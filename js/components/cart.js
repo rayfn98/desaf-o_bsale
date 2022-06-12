@@ -3,7 +3,7 @@ let cartItems = [];
 let totalCost = 0;
 let totalSavedMoney = 0;
 
-// Iniciar Carito, en caso de que exista productos añadidos anteriores
+// Init cart with data saved on LocalStorage
 function initCart() {
     const cartItemsSaved = window.localStorage.getItem("cartItems");
     if (cartItemsSaved) {
@@ -12,14 +12,9 @@ function initCart() {
     updateCartInfo();
 }
 
-// Displayers of items on cart
-let totalCartDisplayers = document.getElementsByClassName(
-    "request-quantity-number"
-);
-
-// Update Info and table
+// UPDATE Info and table
 function updateCartInfo() {
-    // Update total cart items
+    // UPDATE total cart items
     Array.from(totalCartDisplayers).forEach((displayer) => {
         displayer.innerHTML = cartItems.length;
         displayer.classList.add("animate");
@@ -27,7 +22,7 @@ function updateCartInfo() {
             displayer.classList.remove("animate");
         }, 600);
     });
-    // Update Cart Table
+    // UPDATE Cart Table
     const showCartItemsList = cartItems.map((item, i) => {
         // Validate Discount
         if (parseFloat(item.discount, 10) > 0) {
@@ -133,7 +128,7 @@ const addProductsToCart = (productId) => {
     addToCart(productId, q.value);
 };
 
-// Validate if Product exists in cart
+// Validate if Product exists in cart so as Not to Duplicate it
 const isProductAdded = (productId) => {
     let index = -1;
     cartItems.map((item, i) => {
@@ -144,12 +139,19 @@ const isProductAdded = (productId) => {
     return index;
 };
 
-// save Data on LocalStorage
+// Displayers of total items on cart
+let totalCartDisplayers = document.getElementsByClassName(
+    "request-quantity-number"
+);
+
+// Save Data on LocalStorage
 function saveCartData() {
     window.localStorage.setItem("cartItems", JSON.stringify(cartItems));
 }
 
-// Update quantity on cart table
+// Functions for changing quantity in Cart Table 
+
+// UPDATE quantity on cart table
 function listenCartItems() {
     const itemQuantities = document.getElementsByClassName("cart-item-quantity");
     if (itemQuantities.length) {
@@ -162,7 +164,8 @@ function listenCartItems() {
         }
     }
 }
-// Update Item cuantity on cart
+
+// UPDATE Item cuantity on cart
 function updateCartItemQuantity(itemId, newQuantity) {
     cartItems.map((item, i) => {
         if (item.id == itemId) {
@@ -179,7 +182,7 @@ function updateCartItemQuantity(itemId, newQuantity) {
     });
 }
 
-// Update Item Subtotal
+// UPDATE Item Subtotal
 function updateItemSubtotal(i) {
     let item = cartItems[i];
     if (item) {
@@ -197,13 +200,13 @@ function updateItemSubtotal(i) {
                 subtotal.innerHTML = `$ ${item.subtotal.toFixed(2)}`;
             }
         });
-        // Update Totals
+        // UPDATE Totals
         updateTotals();
     }
 }
 
+// UPDATE Total cost and total saved money
 function updateTotals() {
-    // Total Cost and Saved Money
     totalCost = 0;
     totalSavedMoney = 0;
     cartItems.map((item) => {
@@ -221,18 +224,18 @@ function updateTotals() {
     savedMoneyContainer.innerHTML = totalSavedMoney.toFixed(2);
 }
 
-// DELETE CART ITEM
+// DELETE Cart Item
 function deleteCartItem(i) {
     cartItems.splice(i, 1);
     updateCartInfo();
 }
 
-// PAGAR
+// Make Payment emulation
 function pay() {
     const lottieContainer =
         document.getElementsByClassName("cart-notification")[0];
 
-    // Cart contenedores
+    // Cart containers
     cartTableContainer = document.getElementsByClassName("cart-products")[0];
     cartActionsContainer = document.getElementsByClassName("cart-actions")[0];
     if (cartItems.length > 0) {

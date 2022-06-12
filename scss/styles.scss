@@ -1,10 +1,11 @@
+@import "./global.scss"; //GLOBAR VARS
 @import "./components/product-cards.scss";
 @import "./components/menu.scss";
 @import "./components/modal-request-list";
 @import "./components/products-filter.scss";
 @import "./components/footer.scss";
 @import "./components/banner.scss";
-@import "./global.scss"; //GLOBAR VARS
+@import "./components/extra.scss";
 //Colores
 .main-grid-container {
     display: grid;
@@ -53,13 +54,6 @@ $border-radius-cards: 15px;
     }
 }
 
-//Título tienda
-.content .title-tienda {
-    // background-color: $title-bg-color;
-    z-index: 0;
-    color: rgb(24, 24, 24);
-}
-
 // RESPONSIVE
 @media screen and (min-width: 1366px) and (max-width: 1600px) {
     .main-grid-container {
@@ -93,87 +87,5 @@ $border-radius-cards: 15px;
         .footer {
             grid-column: 1/3;
         }
-    }
-}
-
-// ANIMATIONS
-@keyframes fade-in-card {
-    0% {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-// NOTIFICATIONS
-.notification {
-    background-color: rgba(green, 0.2);
-    padding: 0.1rem 0.2rem;
-    border-radius: 10px;
-    border: 1px solid green;
-    color: green;
-    max-width: 400px;
-    margin: auto;
-    animation: fade-in linear 0.3s 1;
-    h3 {
-        font-weight: 400;
-    }
-    .btn-container {
-        display: flex;
-        width: 100%;
-        justify-content: center;
-        margin-bottom: 1rem;
-    }
-    &.error {
-        background-color: rgba(darkred, 0.2);
-        border: 1px solid darkred;
-        color: $main-color;
-    }
-    &.info {
-        background-color: rgba(blue, 0.2);
-        border: 1px solid $secondary-color;
-        color: $main-color;
-    }
-}
-
-.notification-floating {
-    background: rgba(0, 0, 0, 0.15);
-    width: auto;
-    display: flex;
-    position: fixed;
-    .notification {
-        position: fixed;
-        opacity: 1;
-        transition: transform ease-in-out 0.3s;
-        bottom: 1rem;
-        left: 0.6rem;
-        background-color: rgba(#fff, 0.85);
-        backdrop-filter: blur(35px) saturate(200%);
-        animation: show-floating-notification linear 0.4s 1;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
-        max-width: 240px;
-        &.hid-notification {
-            transform: scale(0) translateX(-200px);
-        }
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .notification {
-        max-width: 90vw;
-    }
-}
-
-@keyframes show-floating-notification {
-    0% {
-        opacity: 0;
-        transform: translateX(-50px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0px);
     }
 }

@@ -6,19 +6,19 @@ function showProducts(add = false) {
     const categories = JSON.parse(
         window.sessionStorage.getItem("categoriesStore")
     );
-    // En caso de que se precsione el botón Ver más
+    // If user press button "Ver más"
     if (add) {
         displayProductsLimit = displayProductsLimit + 12;
     } else {
         displayProductsLimit = 12;
-        // Total de Prouctos Mostrados
+        // Total displayed products
     }
     const totalDisplayed = document.getElementsByClassName(
         "total-products-displayed"
     )[0];
     totalDisplayed.innerHTML = `Mostrando ${displayProductsLimit} productos de ${products.length}`;
 
-    // Botón de Ver más
+    // View More Button
     const btnViewMore = document.getElementsByClassName("btn-view-more")[0];
     if (displayProductsLimit >= products.length) {
         btnViewMore.style.display = "none";
@@ -47,7 +47,7 @@ function showProducts(add = false) {
             }
 
             product.category_name = "Sin categoría";
-            // Obtener nombre de categoría
+            // Set categroy name
             categories.forEach((category) => {
                 if (product.category == category.id) {
                     product.category_name = category.name;
@@ -84,6 +84,7 @@ function showProducts(add = false) {
     </div>
     </div>`;
         });
+    // Display products
     const productsContainer =
         document.getElementsByClassName("products-container")[0];
     if (products.length) {
@@ -162,4 +163,37 @@ function startProductsLoading() {
         </div>
         
     `;
+}
+
+// Request an offer to display it on banner
+function getOfferLoop() {
+    setInterval(() => {
+        axios
+            .get(`${BACKEND_URL}/offer`, {
+                mode: "no-cors",
+                headers: {
+                    "Access-Control-Allow-Origin": "*",
+                },
+            })
+            .then((res) => {
+                const bannerInfo = document.getElementsByClassName("banner-content")[0];
+                const offer = res.data;
+                // Validate Image URL
+                if (!offer.url_image) {
+                    offer.url_image = "/img/logo-prueba.jpg";
+                }
+
+                bannerInfo.innerHTML = ` <div class="banner-description">
+                 <h4>${offer.name} con <span class="banner-discount">${offer.discount}%</span> de descuento</h4>
+             </div>
+             <div class="img">
+                 <img src="${offer.url_image}" alt="" srcset="" />
+             </div> `;
+            })
+            .catch((e) => {
+                console.error(e);
+                displayFloatingNotification("Reconectando...", "success");
+            })
+            .finally(() => {});
+    }, 7000);
 }

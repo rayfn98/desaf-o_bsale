@@ -1,3 +1,4 @@
+// Display Categories on container
 function showCategories(categories) {
     const showCategoriesList = categories.map((category, i) => {
         return `<li class="category">
@@ -9,6 +10,7 @@ function showCategories(categories) {
     categoriesContainer.innerHTML = showCategoriesList.join("");
 }
 
+// Request categories from backend
 function getCategories(init = false) {
     axios
         .get(`${BACKEND_URL}/categories`, {
@@ -30,6 +32,7 @@ function getCategories(init = false) {
         });
 }
 
+// Init  getting categories and initializing products after that
 function initCategories() {
     getCategories(true);
 }

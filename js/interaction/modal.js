@@ -8,6 +8,7 @@ let modalRequestContainer = document.querySelectorAll(
 )[0];
 let modalContent = document.querySelectorAll("#modal-request-content")[0];
 
+// Functions 
 function openModalRequest() {
     modalContent.classList.toggle("modal-closed");
     modalRequestContainer.classList.toggle("closed");
@@ -20,6 +21,7 @@ function closeModalRequest() {
     }, 100);
 }
 
+// Listening modal btns 
 openModalRequestBtn.forEach((btnOpenModal) => {
     btnOpenModal.addEventListener("click", function(e) {
         e.preventDefault();

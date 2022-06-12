@@ -22,22 +22,22 @@
     <script src="https://kit.fontawesome.com/a0fa2bbe71.js" crossorigin="anonymous"></script>
     <!-- LottieFiles -->
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <!-- AXIOS -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
+    <script type="text/javascript" src="./js/functionalities/notifications.js"></script>
     <script type="text/javascript" src="./js/components/categories.js"></script>
     <script type="text/javascript" src="./js/components/products.js"></script>
     <script type="text/javascript" src="./js/components/categoryFilter.js"></script>
     <script type="text/javascript" src="./js/components/cart.js"></script>
     <script type="text/javascript" src="./js/functionalities/productSorting.js"></script>
-    <script type="text/javascript" src="./js/functionalities/notifications.js"></script>
     <script type="text/javascript" src="./js/main.js"></script>
-
-    <!-- AXIOS -->
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <meta name="theme-color" content="#fafafa" />
 </head>
 
 <body>
+    <!-- Grid divided in content and menu -->
     <div class="main-grid-container">
         <!-- Navbar Responsive -->
         <div class="menu-header-responsive">
@@ -58,13 +58,14 @@
           </span>
             </div>
         </div>
+        <!-- Preloader -->
         <div class="loader-container" id="loader-container">
             <div class="loader" id="loader" data-aos="zoom-in" style="transition: all ease-in-out 0.4s 0.12s"></div>
         </div>
         <!-- Content -->
         <div class="content">
-            <!-- Header TItle -->
-            <div class="header">
+            <!-- Header Title -->
+            <div class="header" id="header-tienda">
                 <!-- <h3 id="banner-info">¡Obtén nuevas promociones en BSALE!</h3> -->
                 <div class="title-tienda">
                     <h1>Tienda BSALE</h1>
@@ -211,9 +212,9 @@
                 </nav>
             </div>
         </div>
-        <!-- Fín de Menú -->
+        <!-- Fín Navbar -->
 
-        <!-- Modal Request Pedidos -->
+        <!-- Modal Request cart -->
         <div class="modal-request-container closed">
             <div class="modal-content modal-closed" id="modal-request-content">
                 <div class="close-modal-request-btn">
@@ -269,17 +270,23 @@
                 </div>
             </div>
         </div>
-        <!-- Final Modal Pedidos -->
+        <!-- Final Modal cart -->
 
-        <!-- Notificaciones -->
-        <div id="notification-container" class="notification-floating">
+        <!-- Notifications -->
+        <div id="notification-container" class="notification-floating"></div>
 
+        <div class="btn-up-container">
+            <a class="btn floating" href="#header-tienda" rel="noreferrer" onclick="anchorLink(event)">
+                <i class="fa fa-angle-up"></i>
+            </a>
         </div>
     </div>
 
+    <!-- Interaction scripts -->
     <script type="text/javascript" src="./js/interaction/searcher.js"></script>
     <script type="text/javascript" src="./js/interaction/menu.js"></script>
     <script type="text/javascript" src="./js/interaction/modal.js"></script>
+    <script type="text/javascript" src="./js/interaction/extra.js"></script>
 </body>
 
 </html>

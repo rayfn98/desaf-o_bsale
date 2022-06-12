@@ -1,4 +1,4 @@
-// Al seleccionar una opción
+// Sort products by:
 function sortProducts(query) {
     switch (query) {
         case "nameAsc":
@@ -53,7 +53,7 @@ function orderByNameDesc() {
     showProducts();
 }
 
-// Ordenar por  precio ascendente
+// Ordenar por precio ascendente
 function orderByPriceAsc() {
     const products = JSON.parse(window.sessionStorage.getItem("productsStore"));
     const productsSorted = products.sort((a, b) => {
@@ -70,7 +70,7 @@ function orderByPriceAsc() {
     showProducts();
 }
 
-// Ordenar por  precio descendente
+// Ordenar por precio descendente
 function orderByPriceDesc() {
     const products = JSON.parse(window.sessionStorage.getItem("productsStore"));
     const productsSorted = products.sort((a, b) => {

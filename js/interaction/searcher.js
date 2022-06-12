@@ -1,7 +1,10 @@
-// Mostrar productos filtrados
+// Display filtered products
 function showFilteredProducts(products, query = "", display = false) {
+    // Save products on Local Storage
     window.sessionStorage.setItem("productsStore", JSON.stringify(products));
     let filteredList;
+
+    // Create products html
     if (products.length) {
         filteredList = products
             .slice(0, 5)
@@ -27,14 +30,16 @@ function showFilteredProducts(products, query = "", display = false) {
             })
             .join("");
     } else {
+        // If no products found
         filteredList = `<span class="prevent-hidden" style="padding: 1rem 0; font-size: .8rem">(No se encontraron resultados)</span>`;
     }
+    // Display quick results
     const quickResultsContainer =
         document.getElementsByClassName("quick-results")[0];
     quickResultsContainer.innerHTML = `
              ${filteredList}`;
 
-    // Mostrar en contenedor
+    // Display on container
     if (display) {
         const quickResultsContainer =
             document.getElementsByClassName("quick-results")[0];
@@ -53,6 +58,7 @@ function showFilteredProducts(products, query = "", display = false) {
     }
 }
 
+// Request filtered products by query
 const getFilteredProducts = (displayOnContainer = false) => {
     const query = document.getElementById("input-products-filter").value;
     if (displayOnContainer) {
@@ -84,12 +90,14 @@ const getFilteredProducts = (displayOnContainer = false) => {
         .finally(() => {});
 };
 
+// init filers listening input and Validating it
 function initInteractionFilters() {
     const inputFilter = document.getElementById("input-products-filter");
     const quickResultsContainer =
         document.getElementsByClassName("quick-results")[0];
     const body = document.getElementsByTagName("body")[0];
 
+    //VALIDATIONS
     body.addEventListener("click", (event) => {
         if (
             event.target.classList.contains("prevent-hidden") &&
