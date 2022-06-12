@@ -756,7 +756,7 @@ html {
   position: fixed;
   height: 100vh;
   width: 100vw;
-  z-index: 100;
+  z-index: 200;
   background-color: rgba(0, 0, 0, 0.3);
   display: flex;
   justify-content: center;
@@ -1243,6 +1243,10 @@ html {
   .products-filter-container .products-filter .filter-form .btn span {
     display: none;
   }
+  .products-filter-container .categories-container .list-categories li a {
+    width: 75px;
+    margin: 0 0.5rem;
+  }
 }
 footer .footer-content {
   background-color: white;
@@ -1520,7 +1524,7 @@ footer .footer-content .copyright p {
   font-size: 2rem;
   align-items: center;
   box-shadow: 0 4px 12px rgba(0, 59, 170, 0.4);
-  z-index: 10;
+  z-index: 100;
   display: flex;
   justify-content: center;
 }

@@ -307,5 +307,15 @@
                 }
             }
         }
+        .categories-container {
+            .list-categories {
+                li {
+                    a {
+                        width: 75px;
+                        margin: 0 .5rem;
+                    }
+                }
+            }
+        }
     }
 }
