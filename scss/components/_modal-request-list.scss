@@ -139,6 +139,7 @@
                                     text-align: left;
                                     padding-left: 0.5rem;
                                     max-width: 200px;
+                                    min-width: 130px;
                                     span {
                                         font-size: 0.8rem;
                                         color: $main-color;
@@ -223,5 +224,11 @@
         .modal-content {
             width: 90vw;
         }
+    }
+}
+
+@media screen and (max-width: 600px) and (orientation: portrait) {
+    .modal-request-container {
+        backdrop-filter: none;
     }
 }

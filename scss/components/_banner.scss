@@ -1,4 +1,4 @@
-@import "../global";
+@import "../variables.scss"; //GLOBAR VARS
 .header {
     background: linear-gradient(90deg, $secondary-color, $third-color);
     margin: 0;
@@ -45,6 +45,7 @@
             padding: 0;
             min-height: 120px;
             img {
+                background-color: #fff;
                 animation: fade-in linear 0.5s 1;
                 border-radius: 20px;
                 height: 120px;
