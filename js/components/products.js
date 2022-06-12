@@ -1,7 +1,6 @@
-// OBTENER PRODUCTOS Y CATEGORÍAS
+let displayProductsLimit = 12;
 
-let displayLimit = 12;
-
+// Show Products, called after getting products from backend
 function showProducts(add = false) {
     const products = JSON.parse(window.sessionStorage.getItem("productsStore"));
     const categories = JSON.parse(
@@ -9,26 +8,26 @@ function showProducts(add = false) {
     );
     // En caso de que se precsione el botón Ver más
     if (add) {
-        displayLimit = displayLimit + 12;
+        displayProductsLimit = displayProductsLimit + 12;
     } else {
-        displayLimit = 12;
+        displayProductsLimit = 12;
         // Total de Prouctos Mostrados
     }
     const totalDisplayed = document.getElementsByClassName(
         "total-products-displayed"
     )[0];
-    totalDisplayed.innerHTML = `Mostrando ${displayLimit} productos de ${products.length}`;
+    totalDisplayed.innerHTML = `Mostrando ${displayProductsLimit} productos de ${products.length}`;
 
     // Botón de Ver más
     const btnViewMore = document.getElementsByClassName("btn-view-more")[0];
-    if (displayLimit >= products.length) {
+    if (displayProductsLimit >= products.length) {
         btnViewMore.style.display = "none";
         totalDisplayed.innerHTML = `Mostrando ${products.length} productos de ${products.length}`;
     } else {
         btnViewMore.style.display = "block";
     }
 
-    const showProductsList = products.slice(0, displayLimit).map((product, i) => {
+    const showProductsList = products.slice(0, displayProductsLimit).map((product, i) => {
         if (product.discount > 0) {
             product.on_sale = true;
             product.display_discount = `
@@ -91,6 +90,7 @@ function showProducts(add = false) {
     }
 }
 
+// Request products from server
 function getProducts(reset = false) {
     startProductsLoading();
     axios
@@ -116,22 +116,28 @@ function getProducts(reset = false) {
         })
         .catch((e) => {
             console.error(e);
+            displayServerError()
         })
         .finally(() => {
             endProductsLoading();
         });
 }
 
+// Init Products first getting categories
 function initProducts() {
     getCategories(true);
 }
 
+
+// End Loading
 function endProductsLoading() {
-    let contenedor = document.getElementsByClassName("products-container")[0];
-    contenedor.style.filter = "opacity(1)";
-    contenedor.style.transform = "scale(1)";
+    let container = document.getElementsByClassName("products-container")[0];
+    container.style.filter = "opacity(1)";
+    container.style.transform = "scale(1)";
 }
 
+
+// Show Loading while getting products
 function startProductsLoading() {
     // Ocultar Texto de Resultados
     const filterResults = document.getElementsByClassName(

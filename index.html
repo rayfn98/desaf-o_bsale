@@ -28,6 +28,7 @@
     <script type="text/javascript" src="./js/components/categoryFilter.js"></script>
     <script type="text/javascript" src="./js/components/cart.js"></script>
     <script type="text/javascript" src="./js/functionalities/productSorting.js"></script>
+    <script type="text/javascript" src="./js/functionalities/notifications.js"></script>
     <script type="text/javascript" src="./js/main.js"></script>
 
     <!-- AXIOS -->
@@ -63,8 +64,6 @@
         <!-- Content -->
         <div class="content">
             <!-- Header TItle -->
-
-            <!-- <hr style="margin: 0" /> -->
             <div class="header">
                 <!-- <h3 id="banner-info">¡Obtén nuevas promociones en BSALE!</h3> -->
                 <div class="title-tienda">
@@ -80,7 +79,7 @@
                 </div>
             </div>
             <hr style="margin: 0" />
-            <!-- Products Filter -->
+            <!-- Categories Filter and Products Searcher -->
             <div class="products-filter-container">
                 <!-- Categorías -->
                 <div class="categories-container">
@@ -266,13 +265,16 @@
                 </button>
                         </div>
                     </div>
-                    <div class="cart-notification">
-
-                    </div>
+                    <div class="cart-notification"></div>
                 </div>
             </div>
         </div>
         <!-- Final Modal Pedidos -->
+
+        <!-- Notificaciones -->
+        <div id="notification-container" class="notification-floating">
+
+        </div>
     </div>
 
     <script type="text/javascript" src="./js/interaction/searcher.js"></script>

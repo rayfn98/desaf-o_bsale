@@ -1,4 +1,12 @@
 function filterByCategory(id) {
+    const categories = document.getElementsByClassName("category-name");
+    let categorySelected;
+    for (let category of categories) {
+        if (category.classList.contains(`category-${id}`)) {
+            categorySelected = category.innerHTML.toUpperCase();
+        }
+    }
+
     startProductsLoading()
     axios
         .get(`${BACKEND_URL}/products/category/${id}`, {
@@ -8,14 +16,6 @@ function filterByCategory(id) {
             },
         })
         .then((res) => {
-            const categories = document.getElementsByClassName("category-name");
-            let categorySelected;
-            for (let category of categories) {
-                if (category.classList.contains(`category-${id}`)) {
-                    categorySelected = category.innerHTML.toUpperCase();
-                }
-            }
-
             // Guardar Productos en Store
             const productsStore = JSON.stringify(res.data);
             window.sessionStorage.setItem("productsStore", productsStore);
@@ -29,7 +29,8 @@ function filterByCategory(id) {
             resultsText.innerHTML = `Productos de ${categorySelected}: <br> <span style="font-size: 1rem">${res.data.length} productos encontrados</span>`;
         }).catch(e => {
             console.error(e);
-        }).then(() => {
+            displayServerError(`Error al filtrar por categoría ${categorySelected}`, `filterByCategory(${id})`)
+        }).finally(() => {
             endProductsLoading()
         });
 }

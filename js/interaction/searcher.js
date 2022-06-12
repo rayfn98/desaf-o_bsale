@@ -6,7 +6,7 @@ function showFilteredProducts(products, query = "", display = false) {
         filteredList = products
             .slice(0, 5)
             .map((product, i) => {
-                if (!product.url_image.length) {
+                if (!product.url_image) {
                     product.url_image = "./img/no-image.svg";
                 }
                 return `<div class="quick-result-item prevent-hidden">
@@ -73,11 +73,15 @@ const getFilteredProducts = (displayOnContainer = false) => {
             } else {
                 showFilteredProducts(res.data, query, true);
             }
+
         })
         .catch((e) => {
             console.error(e);
+            const quickResultsContainer =
+                document.getElementsByClassName("quick-results")[0];
+            quickResultsContainer.innerHTML = `<span class="prevent-hidden" style="padding: 1rem 0; font-size: .8rem; color: dark-orange">(No se pudo obtener los productos del servidor)</span>`;
         })
-        .then(() => {});
+        .finally(() => {});
 };
 
 function initInteractionFilters() {

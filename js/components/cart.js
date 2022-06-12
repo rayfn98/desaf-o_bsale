@@ -96,7 +96,7 @@ function updateCartInfo() {
 }
 
 // Add to Cart
-const addToCart = (productId, quantity = 1, productCategory) => {
+function addToCart(productId, quantity = 1, productCategory) {
     axios
         .get(`${BACKEND_URL}/products/${productId}`, {
             mode: "no-cors",
@@ -116,10 +116,16 @@ const addToCart = (productId, quantity = 1, productCategory) => {
             } else {
                 cartItems.push(productCart);
             }
-
+            displayFloatingNotification("¡Producto agregado!", "success");
             updateCartInfo();
+        })
+        .catch((e) => {
+            displayFloatingNotification(
+                "Error al agregar producto al carrito",
+                "error"
+            );
         });
-};
+}
 
 // Add more than 1 product from products grid
 const addProductsToCart = (productId) => {
@@ -223,18 +229,20 @@ function deleteCartItem(i) {
 
 // PAGAR
 function pay() {
-    const lottieContainer = document.getElementsByClassName("cart-notification")[0];
+    const lottieContainer =
+        document.getElementsByClassName("cart-notification")[0];
 
     // Cart contenedores
     cartTableContainer = document.getElementsByClassName("cart-products")[0];
     cartActionsContainer = document.getElementsByClassName("cart-actions")[0];
     if (cartItems.length > 0) {
-        lottieContainer.innerHTML = `<lottie-player src="/img/lf30_editor_3nidetka.json" background="transparent" speed="0.7" style="width: 300px; height: 300px; margin: auto" 1 autoplay></lottie-player>
-        <div class="notification"><h3 style="text-align: center">Añada productos para realizar su compra</h3></div>
+        lottieContainer.innerHTML = `<lottie-player src="/img/lf30_editor_3nidetka.json" background="transparent" speed="0.7" style="width: 400px; max-width: 80vw; margin: auto" 1 autoplay></lottie-player>
+        <div class="notification"><h3 style="text-align: center">!Compra realizada exitosamente!</h3></div>
         `;
         cartItems = [];
         updateCartInfo();
         cartTableContainer.style.display = "none";
+        cartActionsContainer.style.display = "none";
     } else {
         lottieContainer.innerHTML =
             '<div class="notification"><h3 style="text-align: center">Añada productos para realizar su compra</h3></div>';
@@ -242,5 +250,6 @@ function pay() {
     setTimeout(() => {
         lottieContainer.innerHTML = "";
         cartTableContainer.style.display = "block";
+        cartActionsContainer.style.display = "flex";
     }, 5000);
 }

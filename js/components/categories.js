@@ -24,6 +24,9 @@ function getCategories(init = false) {
             showCategories(res.data);
             const categories = JSON.stringify(res.data);
             window.sessionStorage.setItem("categoriesStore", categories);
+        })
+        .catch((e) => {
+            displayFloatingNotification("Error al obtener categorías", "error");
         });
 }
 

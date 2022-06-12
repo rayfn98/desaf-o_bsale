@@ -17,7 +17,7 @@
         background-color: #fff;
         // backdrop-filter: blur(30px) saturate(200%);
         height: 86vh;
-        width: 90vw;
+        width: 88vw;
         border-radius: 24px;
         padding: 1.2rem 1rem;
         top: 5vh;
@@ -132,7 +132,7 @@
                                         color: $main-color;
                                         box-shadow: none;
                                         border: 1px solid $main-color;
-                                        font-size: .8rem;
+                                        font-size: 0.8rem;
                                     }
                                 }
                                 &.product-name {
@@ -211,7 +211,9 @@
                     padding: 0.7rem 2rem;
                 }
             }
-            .cart-notification {}
+            .cart-notification {
+                margin-top: 1rem;
+            }
         }
     }
 }
