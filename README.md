@@ -2,6 +2,11 @@
 Aplicación FrontEnd de Tienda en línea desarrollada con Vanilla JS y SASS, con el fin de interactuar con el sistema Backend https://github.com/rayfn98/bsale-backend
 y la base de datos proporcionada por BSALE
 
+## Persistencia de Conexión y Keep Alive
+La estrategia de Keep alive está implementada en el Backend, por el lado Frontend, se comprueba la persistencia con el banner.
+El Banner ayuda a comprobar la persistencia de la conexión solicitando una oferta cada 7 segundos, en caso de que la conexión del backend falle, el error se reporta como un console.error dentro de la página.
+
+
 ## Demo
 https://bsale-rayflores.herokuapp.com/
 
@@ -63,7 +68,7 @@ https://bsale-rayflores.herokuapp.com/
   - Validación de entradas en inputs
   - Validación de botones, en caso de carrito vació etc.
  
-- RESPONSIVE: Diseño totalmente responsive y con funcionalidades de ayuda al usuario
+- RESPONSIVE & UX: Diseño totalmente responsive y con funcionalidades de ayuda al usuario
   
 ![image](https://user-images.githubusercontent.com/47233742/173274760-8859314e-b24d-435d-bb7f-087dafcc5ec1.png)
 
