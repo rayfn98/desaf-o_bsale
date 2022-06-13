@@ -74,7 +74,7 @@ https://bsale-rayflores.herokuapp.com/
 
 
  
-## Instalación
+## Instalación y Deployment
 1. Clonar el proyecto https://github.com/rayfn98/desaf-o_bsale/
 2. Ingresar al proyecto ``` cd <proyecto> ```
 3. En el caso de no haber inicializado git
