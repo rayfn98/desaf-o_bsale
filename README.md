@@ -58,13 +58,17 @@ https://bsale-rayflores.herokuapp.com/
   
 - CONTROL DE ERRORES:
   - Cuenta con notificaciones al fallar las peticiones al servidor
-  - Notificaciones de ERROR
+  - Notificaciones de ERROR al añadir producto, filtrar, etc
   - Boton de REINTENTAR en caso de no obtener productos  
+  - Validación de entradas en inputs
+  - Validación de botones, en caso de carrito vació etc.
  
-- RESPONSIVE: Diseño totalmente responsive
+- RESPONSIVE: Diseño totalmente responsive y con funcionalidades de ayuda al usuario
   
 ![image](https://user-images.githubusercontent.com/47233742/173274760-8859314e-b24d-435d-bb7f-087dafcc5ec1.png)
+
 ![image](https://user-images.githubusercontent.com/47233742/173274927-5f6d0f82-8f8a-46b7-b18b-b5fd8470b779.png)
+
 ![image](https://user-images.githubusercontent.com/47233742/173274953-f3bf5486-c192-44d4-81ce-cc80c8d0d8a5.png)
 
 
