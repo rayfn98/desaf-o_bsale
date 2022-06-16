@@ -2,17 +2,91 @@
 Aplicación FrontEnd de Tienda en línea desarrollada con Vanilla JS y SASS, con el fin de interactuar con el sistema Backend https://github.com/rayfn98/bsale-backend
 y la base de datos proporcionada por BSALE
 
+## Explicación
+La aplicación Frontend consume las API's listando los productos, filtrándolos y añadiéndolos al carrito. Se implementó un buscador en tiempo real con el fin de facilitar la interacción. También se implementó notificaciones para mejorar la experiencia e información que brinda la app. Adicionalmente tiene funciones y validacione para que la funcionalidad brinde la solución a los requerimientos del usuario.
+
+## Buscador / Searcher
+La App cuenta con un buscador que realiza búsquedas automáticas cada vez que el usuario teclea dentro del input con el fin de mostrar resultados rápidos a la vista, siempre y cuando la palabra ingresada tenga más de 2 letras. En el caso de que desee ver todos los resultados en el contenedor principal, este presiona Enter o da click al botón "Buscar". Adicionalmente se pueden agregar productos desde los resultados rápidos. Al borrar el texto, está programada para ocultarse cuando no haya nada ingresado
+
+![image](https://user-images.githubusercontent.com/47233742/173993770-8b2a8c0a-d864-4cbe-9b65-f6352dfe4251.png)
+
+## Persistencia de Conexión y Keep Alive
+La estrategia de Keep alive está implementada en el Backend, por el lado Frontend, se comprueba la persistencia con el banner.
+El Banner ayuda a comprobar la persistencia de la conexión solicitando una oferta cada 7 segundos, en caso de que la conexión del backend falle, el error se reporta como un console.error dentro de la página.
+
+## Demo
+https://bsale-rayflores.herokuapp.com/
+
 ## Pre-requisitos
 - Instalar sistema backend https://github.com/rayfn98/bsale-backend}
 - HEROKU CLI
+- Librería CDN axios
 
-- OPCIONALES A CAMBIAR
+- Complementarios / Opcionales
   - CDN Fontawesome 5.*
   - CDN Lottiefiles https://lottiefiles.github.io/lottie-player/installation.html
-  - SCSS 1.35.*
+  - SASS
+
+## Capturas y Funcionalidades Principales
+
+- Página de Inicio y notificación de conexión hecha, la 1era conexión puede tardar por el servidor Heroku de backend
+  
+  ![image](https://user-images.githubusercontent.com/47233742/173272479-3e943b50-d80b-48d0-886c-741fcfe705db.png)
+  
+- El BANNER inicial obtiene una oferta aleatoria del backend cada 7 segundos
+  A la vez es una prueba del Keep Alive implementado en el Backend
+  
+  ![image](https://user-images.githubusercontent.com/47233742/173273311-61dc1554-df4d-4228-a905-cfddd672af84.png)
+  
+- FILTRAR por: CATEGORÍA y BÚSQUEDA por Nombre, implementados a nivel de backend, con funcionalidades como resultados rápidos y acciones rápidas
+  
+  ![image](https://user-images.githubusercontent.com/47233742/173273623-737eaaea-563c-4399-9957-4e7f11b6bce1.png)
+  
+- RESULTADOS de filtros con opciones de volver a ver todos los productos, también se cuenta con un sorteador de productos
+  
+  ![image](https://user-images.githubusercontent.com/47233742/173273703-afeaebf5-c503-4ffd-a54f-6312d1985580.png)
+  
+- PAGINACIÓN con botón para volver a la parte de arriba
+  
+  ![image](https://user-images.githubusercontent.com/47233742/173274562-92dd426a-9dd1-43a8-82b7-d0d9623d7426.png)
+  
+- EJEMPLO: Productos de categoría RON sorteados por Precio de menor a mayor
+  
+  ![image](https://user-images.githubusercontent.com/47233742/173273812-c4333eba-9b58-4ee9-a1cc-5e8f1cb04e56.png)
+  
+- AÑADIR AL CARRITO con opción de cantidad
+  
+  ![image](https://user-images.githubusercontent.com/47233742/173273879-032dcc2b-9a3b-49bb-9eff-928b67b68211.png)
+  
+- VER PEDIDO - Contiene un indicador del total de Items agregados, no cuenta productos repetidos y la cantidad de productos
+  Es decir, si se tiene un producto con 5 en cantidad, el botón seguirá señalando 1 con el fin de mostrar la cantidad de productos diferentes
+  
+  ![image](https://user-images.githubusercontent.com/47233742/173273972-501a8ed0-03c4-45ea-8771-05bb16d27e6b.png)
+  
+- TABLA DE PEDIDO, contiene opciones para modificar o eliminar la cantidad de productos actualizando los totales y se guarda en localStorage para no perder los datos
+  El botón pagar limpia la lista del carrito y muestra una Animación, después de un momento el sistema cierra el modal y regresa a la parte principal para empezar otra   vez.
+  
+  ![image](https://user-images.githubusercontent.com/47233742/173274364-ff199f1a-c748-49fc-af09-249deeaaab27.png)
+  
+- CONTROL DE ERRORES:
+  - Cuenta con notificaciones al fallar las peticiones al servidor
+  - Notificaciones de ERROR al añadir producto, filtrar, etc
+  - Boton de REINTENTAR en caso de no obtener productos  
+  - Validación de entradas en inputs
+  - Validación de botones, en caso de carrito vació etc.
+ 
+- RESPONSIVE & UX: Diseño totalmente responsive y con funcionalidades de ayuda al usuario
+  
+![image](https://user-images.githubusercontent.com/47233742/173274760-8859314e-b24d-435d-bb7f-087dafcc5ec1.png)
+
+![image](https://user-images.githubusercontent.com/47233742/173274927-5f6d0f82-8f8a-46b7-b18b-b5fd8470b779.png)
+
+![image](https://user-images.githubusercontent.com/47233742/173274953-f3bf5486-c192-44d4-81ce-cc80c8d0d8a5.png)
+
+
 
  
-## Instalación
+## Instalación y Deployment
 1. Clonar el proyecto https://github.com/rayfn98/desaf-o_bsale/
 2. Ingresar al proyecto ``` cd <proyecto> ```
 3. En el caso de no haber inicializado git
@@ -38,12 +112,11 @@ git push heroku main
 * Se usó una versión minificada de los archivos JS para simular el uso de Webpack o Babel
 * Herramienta: https://developers.google.com/closure/compiler/docs/gettingstarted_ui?csw=1
 
-## Ejemplos
-- Página de Inicio
-
 ## Autor
 Ray Flores Nolasco
 ### Contacto
 - WhatsApp: +51929044032
 - Email: rayfn98@gmail.com
 - Linkedin: https://www.linkedin.com/in/rayfloresnolasco/
+
+### Comentarios del código en Inglés
