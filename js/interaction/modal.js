@@ -1,27 +1,32 @@
+/* MODAL / CARRITO */
+
 // Open & Close Modal
 let openModalRequestBtn = document.querySelectorAll(".open-modal-request-btn");
 let closeModalRequestBtn = document.querySelectorAll(
     ".close-modal-request-btn"
 )[0];
+/* Contenedor del modal */
 let modalRequestContainer = document.querySelectorAll(
     ".modal-request-container"
 )[0];
+// Cuadro blanco - Contenido del modal
 let modalContent = document.querySelectorAll("#modal-request-content")[0];
 
-// Functions 
+// Abrir Modal
 function openModalRequest() {
-    modalContent.classList.toggle("modal-closed");
-    modalRequestContainer.classList.toggle("closed");
+    modalContent.classList.remove("modal-closed");
+    modalRequestContainer.classList.remove("closed");
 }
 
+// Cerrar Modal
 function closeModalRequest() {
-    modalContent.classList.toggle("modal-closed");
+    modalContent.classList.add("modal-closed");
     setTimeout(function() {
-        modalRequestContainer.classList.toggle("closed");
+        modalRequestContainer.classList.add("closed");
     }, 100);
 }
 
-// Listening modal btns 
+// Escucha el click en los botones del modal / Carrito
 openModalRequestBtn.forEach((btnOpenModal) => {
     btnOpenModal.addEventListener("click", function(e) {
         e.preventDefault();
@@ -29,11 +34,13 @@ openModalRequestBtn.forEach((btnOpenModal) => {
     });
 });
 
+// Cierra el modal en el caso hagan click en el botón x
 closeModalRequestBtn.addEventListener("click", function(e) {
     e.preventDefault();
     closeModalRequest();
 });
 
+//Cierra el modal en caso haga click fuera del carrito
 window.addEventListener("click", function(e) {
     if (e.target == modalRequestContainer) {
         closeModalRequest();

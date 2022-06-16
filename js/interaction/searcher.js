@@ -1,4 +1,6 @@
-// Display filtered products
+/* BÚSQUEDA */
+
+// MOSTRAR PRODUCTOS RESULTADO DE BÚSQUEDA
 function showFilteredProducts(products, query = "", display = false) {
     // Save products on Local Storage
     window.sessionStorage.setItem("productsStore", JSON.stringify(products));
@@ -59,7 +61,7 @@ function showFilteredProducts(products, query = "", display = false) {
     }
 }
 
-// Request filtered products by query
+// Pedir productos por Query
 const getFilteredProducts = (displayOnContainer = false) => {
     const query = document.getElementById("input-products-filter").value;
     if (displayOnContainer) {
@@ -90,7 +92,7 @@ const getFilteredProducts = (displayOnContainer = false) => {
         .finally(() => {});
 };
 
-// init filers listening input and Validating it
+// Iniciar buscador y validaciones de Input
 function initInteractionFilters() {
     const inputFilter = document.getElementById("input-products-filter");
     const quickResultsContainer =

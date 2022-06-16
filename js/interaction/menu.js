@@ -5,6 +5,7 @@ document.addEventListener("touchmove", handleTouchMove, false);
 let xDown = null;
 let yDown = null;
 
+/* Abrir menú */
 function openMenu(e) {
     if (e) {
         e.preventDefault();
@@ -17,6 +18,7 @@ function openMenu(e) {
     }
 }
 
+/* Cerrar Menú */
 function closeMenu(e) {
     if (e) {
         e.preventDefault();
@@ -26,6 +28,7 @@ function closeMenu(e) {
     return 0;
 }
 
+/* Obtener toques */
 function getTouches(evt) {
     return evt.touches || evt.originalEvent.touches;
 }
@@ -36,6 +39,9 @@ function handleTouchStart(evt) {
     xDown = firstTouch.clientX;
     yDown = firstTouch.clientY;
 }
+
+// Acciones de abrir y cerrar menú de acuerdo a la dirección
+// para responsive
 
 function handleTouchMove(evt) {
     if (!xDown || !yDown) {

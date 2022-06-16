@@ -1,4 +1,6 @@
-// Sort products by:
+// FUNCIONES PARA ORDENAR LOS PRODUCTOS
+
+// Ordenar por Query:
 function sortProducts(query) {
     switch (query) {
         case "nameAsc":
@@ -87,7 +89,7 @@ function orderByPriceDesc() {
     showProducts();
 }
 
-// RESET
+// RESET Sorters
 function resetSorter() {
     const selectProductSorter = document.getElementById("sorter-select");
     selectProductSorter.value = "none";

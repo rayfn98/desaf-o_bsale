@@ -1,4 +1,6 @@
-// Display Categories on container
+// CATEGORÍAS
+
+// Muestra las categorías en el contenedor arriba del buscador
 function showCategories(categories) {
     const showCategoriesList = categories.map((category, i) => {
         return `<li class="category">

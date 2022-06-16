@@ -1,6 +1,9 @@
-// FIlter by category
+/* FILTROS */
+
+// En caso esté un filtro activo de categoría
 let categoryActive = false;
 
+// Filtrar por categoría
 function filterByCategory(id) {
     const categories = document.getElementsByClassName("category-name");
     let categorySelected;

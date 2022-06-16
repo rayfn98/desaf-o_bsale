@@ -1,9 +1,15 @@
-// CART
+/* CARRITO */
+/* Getiona el flujo de datos del carrito como la tabl
+ de pedidos cálculo de precio total} */
+
+// Items en carrito
 let cartItems = [];
+//Costo total
 let totalCost = 0;
+// Dinero total ahorrado
 let totalSavedMoney = 0;
 
-// Init cart with data saved on LocalStorage
+// Recuperar datos guardados en Local Storage
 function initCart() {
     const cartItemsSaved = window.localStorage.getItem("cartItems");
     if (cartItemsSaved) {
@@ -12,7 +18,7 @@ function initCart() {
     updateCartInfo();
 }
 
-// UPDATE Info and table
+// UPDATE Info and table - Actualiza la información de la tabla en el modal
 function updateCartInfo() {
     // UPDATE total cart items
     Array.from(totalCartDisplayers).forEach((displayer) => {
@@ -90,7 +96,7 @@ function updateCartInfo() {
     saveCartData();
 }
 
-// Add to Cart
+// Add to Cart - Añade producto(s) al carrito
 function addToCart(productId, quantity = 1, productCategory) {
     axios
         .get(`${BACKEND_URL}/products/${productId}`, {
@@ -122,13 +128,14 @@ function addToCart(productId, quantity = 1, productCategory) {
         });
 }
 
-// Add more than 1 product from products grid
+// Añade más de 1 producto al carrito
 const addProductsToCart = (productId) => {
     const q = document.getElementById(`request-quantity-${productId}`);
     addToCart(productId, q.value);
 };
 
-// Validate if Product exists in cart so as Not to Duplicate it
+/* Valida si el producto está en el carrito para no 
+duplicarlo y en su lugar aumentar la cantidad */
 const isProductAdded = (productId) => {
     let index = -1;
     cartItems.map((item, i) => {
@@ -140,18 +147,21 @@ const isProductAdded = (productId) => {
 };
 
 // Displayers of total items on cart
+/* Actualiza y muestra el total de items en el carrito */
 let totalCartDisplayers = document.getElementsByClassName(
     "request-quantity-number"
 );
 
 // Save Data on LocalStorage
+/* Guarda la información en Local Storage */
 function saveCartData() {
     window.localStorage.setItem("cartItems", JSON.stringify(cartItems));
 }
 
-// Functions for changing quantity in Cart Table
+// Para calcular los datos del Carrito
 
-// UPDATE quantity on cart table
+/* Actualiza la cantidad de cada item del carrito, en el caso de que se cambie,
+llama a los demás métodos para actualizar los totales */
 function listenCartItems() {
     const itemQuantities = document.getElementsByClassName("cart-item-quantity");
     if (itemQuantities.length) {
@@ -165,7 +175,7 @@ function listenCartItems() {
     }
 }
 
-// UPDATE Item cuantity on cart
+/* Actualiza la cantidad de un producto */
 function updateCartItemQuantity(itemId, newQuantity) {
     cartItems.map((item, i) => {
         if (item.id == itemId) {
@@ -182,7 +192,7 @@ function updateCartItemQuantity(itemId, newQuantity) {
     });
 }
 
-// UPDATE Item Subtotal
+/* Calcula y Actualiza el subtotal de un item */
 function updateItemSubtotal(i) {
     let item = cartItems[i];
     if (item) {
@@ -205,7 +215,7 @@ function updateItemSubtotal(i) {
     }
 }
 
-// UPDATE Total cost and total saved money
+// /* Calcula el Costo total y el dinero ahorrado */
 function updateTotals() {
     totalCost = 0;
     totalSavedMoney = 0;
@@ -224,13 +234,13 @@ function updateTotals() {
     savedMoneyContainer.innerHTML = totalSavedMoney.toFixed(2);
 }
 
-// DELETE Cart Item
+/* Elimina item del carrito y actualiza la información */
 function deleteCartItem(i) {
     cartItems.splice(i, 1);
     updateCartInfo();
 }
 
-// Make Payment emulation
+/* Método para emular pago */
 function pay() {
     const lottieContainer =
         document.getElementsByClassName("cart-notification")[0];

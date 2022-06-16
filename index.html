@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>Desafío BSALE</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -29,9 +29,9 @@
 </head>
 
 <body>
-    <!-- Grid divided in content and menu -->
+    <!-- Main Grid divided in content and menu -->
     <div class="main-grid-container">
-        <!-- Navbar Responsive -->
+        <!-- Responsive Navbar / RIGHT -->
         <div class="menu-header-responsive">
             <div class="logo">
                 <a href="#"><img src="./img/logo-store.webp" alt="LOGO" /></a>
@@ -50,15 +50,12 @@
           </span>
             </div>
         </div>
-        <!-- Preloader -->
-        <div class="loader-container" id="loader-container">
-            <div class="loader" id="loader" data-aos="zoom-in" style="transition: all ease-in-out 0.4s 0.12s"></div>
-        </div>
-        <!-- Content -->
+
+        <!-- Content / LEFT-->
         <div class="content">
             <!-- Header Title -->
             <div class="header" id="header-tienda">
-                <!-- <h3 id="banner-info">¡Obtén nuevas promociones en BSALE!</h3> -->
+                <!-- BANNER -->
                 <div class="title-tienda">
                     <h1>Tienda BSALE</h1>
                 </div>
@@ -84,6 +81,7 @@
                     </ul>
                 </div>
                 <hr class="products-filter-separator" />
+                <!-- BUSCADOR / SEARCHER -->
                 <div class="products-filter">
                     <div class="filter-form">
                         <div class="input-container prevent-hidden">
@@ -99,6 +97,7 @@
                     </div>
                 </div>
             </div>
+
             <!-- Sorters -->
             <div class="sorter-container">
                 <h4>Ordenar por: &nbsp;</h4>
@@ -117,7 +116,8 @@
             Ver todos los productos
           </button>
             </div>
-            <!-- Card products -->
+
+            <!-- PRODUCT CARDS CONTAINER -->
             <div class="card-container products-container">
                 <p>Cargando productos...</p>
             </div>
@@ -127,7 +127,8 @@
           </button>
                 <p class="total-products-displayed">20 Productos</p>
             </div>
-            <!-- Footer -->
+
+            <!-- FOOTER -->
             <footer class="footer">
                 <div class="footer-content">
                     <div class="business-content">
@@ -154,8 +155,9 @@
             </footer>
             <!-- End Footer -->
         </div>
+        <!-- End of Content -->
 
-        <!-- Navbar -->
+        <!-- Navbar  Responsive-->
         <div class="menu">
             <div class="nav-pedidos-container" onclick="closeMenu()">
                 <div class="menu-header-responsive-2">
@@ -204,7 +206,7 @@
                 </nav>
             </div>
         </div>
-        <!-- Fín Navbar -->
+        <!--  Navbar End -->
 
         <!-- Modal Request cart -->
         <div class="modal-request-container closed">
@@ -266,31 +268,39 @@
 
         <!-- Notifications -->
         <div id="notification-container" class="notification-floating"></div>
+        <!-- END NOTIFICATIONS -->
 
+        <!-- BTN for Going Up -->
         <div class="btn-up-container">
             <a class="btn floating" href="#header-tienda" rel="noreferrer" onclick="anchorLink(event)">
                 <i class="fa fa-angle-up"></i>
             </a>
         </div>
+        <!-- End of Floating Btn -->
+
+        <!-- Preloader -->
+        <div class="loader-container" id="loader-container">
+            <div class="loader" id="loader" data-aos="zoom-in" style="transition: all ease-in-out 0.4s 0.12s"></div>
+        </div>
     </div>
 
-    <!-- JS FILES -->
-    <!-- <script type="text/javascript" src="./js/functionalities/notifications.js"></script>
+    <!-- JS FILES Separados -->
+    <script type="text/javascript" src="./js/interaction/notifications.js"></script>
     <script type="text/javascript" src="./js/components/categories.js"></script>
     <script type="text/javascript" src="./js/components/products.js"></script>
     <script type="text/javascript" src="./js/components/categoryFilter.js"></script>
     <script type="text/javascript" src="./js/components/cart.js"></script>
-    <script type="text/javascript" src="./js/functionalities/productSorting.js"></script> -->
+    <script type="text/javascript" src="./js/interaction/productSorting.js"></script>
     <!-- Interaction scripts -->
-    <!-- <script type="text/javascript" src="./js/interaction/searcher.js"></script>
+    <script type="text/javascript" src="./js/interaction/searcher.js"></script>
     <script type="text/javascript" src="./js/interaction/menu.js"></script>
     <script type="text/javascript" src="./js/interaction/modal.js"></script>
     <script type="text/javascript" src="./js/interaction/extra.js"></script>
-    <script type="text/javascript" src="./js/main.js"></script> -->
+    <script type="text/javascript" src="./js/main.js"></script>
 
     <!-- Se unieron los archivos JS para evitar problemas de error de carga en heroku-->
-    <!-- HERRAMIENTA: https://closure-compiler.appspot.com/home#code%3D%252F%252F%2520%253D%253DClosureCompiler%253D%253D%250A%252F%252F%2520%2540output_file_name%2520default.js%250A%252F%252F%2520%2540compilation_level%2520SIMPLE_OPTIMIZATIONS%250A%252F%252F%2520%2540code_url%2520https%253A%252F%252Fbsale-rayflores.herokuapp.com%252Fjs%252Ffunctionalities%252Fnotifications.js%250A%252F%252F%2520%2540code_url%2520https%253A%252F%252Fbsale-rayflores.herokuapp.com%252Fjs%252Ffunctionalities%252FproductSorting.js%250A%252F%252F%2520%2540code_url%2520https%253A%252F%252Fbsale-rayflores.herokuapp.com%252Fjs%252Fcomponents%252Fcart.js%250A%252F%252F%2520%2540code_url%2520https%253A%252F%252Fbsale-rayflores.herokuapp.com%252Fjs%252Fcomponents%252Fcategories.js%250A%252F%252F%2520%2540code_url%2520https%253A%252F%252Fbsale-rayflores.herokuapp.com%252Fjs%252Fcomponents%252FcategoryFilter.js%250A%252F%252F%2520%2540code_url%2520https%253A%252F%252Fbsale-rayflores.herokuapp.com%252Fjs%252Fcomponents%252Fproducts.js%250A%252F%252F%2520%2540code_url%2520https%253A%252F%252Fbsale-rayflores.herokuapp.com%252Fjs%252Finteraction%252Fextra.js%250A%252F%252F%2520%2540code_url%2520https%253A%252F%252Fbsale-rayflores.herokuapp.com%252Fjs%252Finteraction%252Fmenu.js%250A%252F%252F%2520%2540code_url%2520https%253A%252F%252Fbsale-rayflores.herokuapp.com%252Fjs%252Finteraction%252Fmodal.js%250A%252F%252F%2520%2540code_url%2520https%253A%252F%252Fbsale-rayflores.herokuapp.com%252Fjs%252Finteraction%252Fsearcher.js%250A%252F%252F%2520%2540code_url%2520https%253A%252F%252Fbsale-rayflores.herokuapp.com%252Fjs%252Fmain.js%250A%252F%252F%2520%253D%253D%252FClosureCompiler%253D%253D%250A%250A%250A -->
-    <script type="text/javascript" src="./js/compiled.js"></script>
+    <!-- HERRAMIENTA: https://closure-compiler.appspot.com/home#code%3D%252F%252F%2520%253D%253DClosureCompiler%253D%253D%250A%252F%252F%2520%2540output_file_name%2520default.js%250A%252F%252F%2520%2540compilation_level%2520SIMPLE_OPTIMIZATIONS%250A%252F%252F%2520%2540code_url%2520https%253A%252F%252Fbsale-rayflores.herokuapp.com%252Fjs%252Finteraction%252Fnotifications.js%250A%252F%252F%2520%2540code_url%2520https%253A%252F%252Fbsale-rayflores.herokuapp.com%252Fjs%252Finteraction%252FproductSorting.js%250A%252F%252F%2520%2540code_url%2520https%253A%252F%252Fbsale-rayflores.herokuapp.com%252Fjs%252Fcomponents%252Fcart.js%250A%252F%252F%2520%2540code_url%2520https%253A%252F%252Fbsale-rayflores.herokuapp.com%252Fjs%252Fcomponents%252Fcategories.js%250A%252F%252F%2520%2540code_url%2520https%253A%252F%252Fbsale-rayflores.herokuapp.com%252Fjs%252Fcomponents%252FcategoryFilter.js%250A%252F%252F%2520%2540code_url%2520https%253A%252F%252Fbsale-rayflores.herokuapp.com%252Fjs%252Fcomponents%252Fproducts.js%250A%252F%252F%2520%2540code_url%2520https%253A%252F%252Fbsale-rayflores.herokuapp.com%252Fjs%252Finteraction%252Fextra.js%250A%252F%252F%2520%2540code_url%2520https%253A%252F%252Fbsale-rayflores.herokuapp.com%252Fjs%252Finteraction%252Fmenu.js%250A%252F%252F%2520%2540code_url%2520https%253A%252F%252Fbsale-rayflores.herokuapp.com%252Fjs%252Finteraction%252Fmodal.js%250A%252F%252F%2520%2540code_url%2520https%253A%252F%252Fbsale-rayflores.herokuapp.com%252Fjs%252Finteraction%252Fsearcher.js%250A%252F%252F%2520%2540code_url%2520https%253A%252F%252Fbsale-rayflores.herokuapp.com%252Fjs%252Fmain.js%250A%252F%252F%2520%253D%253D%252FClosureCompiler%253D%253D%250A%250A%250A -->
+    <!-- <script type="text/javascript" src="./js/compiled.js"></script> -->
 </body>
 
 </html>

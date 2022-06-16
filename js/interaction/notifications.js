@@ -1,3 +1,5 @@
+// NOTIFICACIONES
+
 // Display notifications on products container
 function displayContainerNotification(
     msg = "Error al cargar productos",

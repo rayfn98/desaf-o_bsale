@@ -1,4 +1,4 @@
-// Anchor Link
+// Anchor Link - SCROLL SUAVE
 function anchorLink(e) {
     if (e) {
         e.preventDefault();

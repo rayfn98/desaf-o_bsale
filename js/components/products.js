@@ -1,3 +1,6 @@
+/* PRODUCTOS */
+
+/* Límite de productos a mostrar */
 let displayProductsLimit = 12;
 
 // Show Products, called after getting products from backend
