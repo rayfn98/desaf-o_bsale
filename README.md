@@ -2,10 +2,12 @@
 Aplicación FrontEnd de Tienda en línea desarrollada con Vanilla JS y SASS, con el fin de interactuar con el sistema Backend https://github.com/rayfn98/bsale-backend
 y la base de datos proporcionada por BSALE
 
+## Explicación
+La aplicación Frontend consume las API's listando los productos, filtrándolos y añadiéndolos al carrito. Cuenta con un buscador que realizar búsquedas automáticas cada vez que el usuario teclea dentro del input con el fin de mostrar resultados rápidos. En el caso de que desee ver todos los resultados, este presiona Enter o da click al botón "Buscar". También se implementó notificaciones para mejorar la experiencia e información que brinda la app. Adicionalmente tiene funciones y validacione para que la funcionalidad brinde la solución a los requerimientos del usuario.
+
 ## Persistencia de Conexión y Keep Alive
 La estrategia de Keep alive está implementada en el Backend, por el lado Frontend, se comprueba la persistencia con el banner.
 El Banner ayuda a comprobar la persistencia de la conexión solicitando una oferta cada 7 segundos, en caso de que la conexión del backend falle, el error se reporta como un console.error dentro de la página.
-
 
 ## Demo
 https://bsale-rayflores.herokuapp.com/
@@ -20,8 +22,8 @@ https://bsale-rayflores.herokuapp.com/
   - CDN Lottiefiles https://lottiefiles.github.io/lottie-player/installation.html
   - SASS
 
+## Capturas y Funcionalidades Principales
 
-## Explicación / Tutorial
 - Página de Inicio y notificación de conexión hecha, la 1era conexión puede tardar por el servidor Heroku de backend
   
   ![image](https://user-images.githubusercontent.com/47233742/173272479-3e943b50-d80b-48d0-886c-741fcfe705db.png)
@@ -111,3 +113,5 @@ Ray Flores Nolasco
 - WhatsApp: +51929044032
 - Email: rayfn98@gmail.com
 - Linkedin: https://www.linkedin.com/in/rayfloresnolasco/
+
+### Comentarios del código en Inglés
