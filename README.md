@@ -3,7 +3,12 @@ Aplicación FrontEnd de Tienda en línea desarrollada con Vanilla JS y SASS, con
 y la base de datos proporcionada por BSALE
 
 ## Explicación
-La aplicación Frontend consume las API's listando los productos, filtrándolos y añadiéndolos al carrito. Cuenta con un buscador que realizar búsquedas automáticas cada vez que el usuario teclea dentro del input con el fin de mostrar resultados rápidos. En el caso de que desee ver todos los resultados, este presiona Enter o da click al botón "Buscar". También se implementó notificaciones para mejorar la experiencia e información que brinda la app. Adicionalmente tiene funciones y validacione para que la funcionalidad brinde la solución a los requerimientos del usuario.
+La aplicación Frontend consume las API's listando los productos, filtrándolos y añadiéndolos al carrito. Se implementó un buscador en tiempo real con el fin de facilitar la interacción. También se implementó notificaciones para mejorar la experiencia e información que brinda la app. Adicionalmente tiene funciones y validacione para que la funcionalidad brinde la solución a los requerimientos del usuario.
+
+## Buscador / Searcher
+La App cuenta con un buscador que realiza búsquedas automáticas cada vez que el usuario teclea dentro del input con el fin de mostrar resultados rápidos a la vista, siempre y cuando la palabra ingresada tenga más de 2 letras. En el caso de que desee ver todos los resultados en el contenedor principal, este presiona Enter o da click al botón "Buscar". Adicionalmente se pueden agregar productos desde los resultados rápidos. Al borrar el texto, está programada para ocultarse cuando no haya nada ingresado
+
+![image](https://user-images.githubusercontent.com/47233742/173993770-8b2a8c0a-d864-4cbe-9b65-f6352dfe4251.png)
 
 ## Persistencia de Conexión y Keep Alive
 La estrategia de Keep alive está implementada en el Backend, por el lado Frontend, se comprueba la persistencia con el banner.
@@ -59,7 +64,7 @@ https://bsale-rayflores.herokuapp.com/
   ![image](https://user-images.githubusercontent.com/47233742/173273972-501a8ed0-03c4-45ea-8771-05bb16d27e6b.png)
   
 - TABLA DE PEDIDO, contiene opciones para modificar o eliminar la cantidad de productos actualizando los totales y se guarda en localStorage para no perder los datos
-  El botón pagar limpia la lista del carrito y muestra una Animación
+  El botón pagar limpia la lista del carrito y muestra una Animación, después de un momento el sistema cierra el modal y regresa a la parte principal para empezar otra   vez.
   
   ![image](https://user-images.githubusercontent.com/47233742/173274364-ff199f1a-c748-49fc-af09-249deeaaab27.png)
   
